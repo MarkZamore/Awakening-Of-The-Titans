@@ -5,7 +5,7 @@ import pathlib
 import tempfile
 import unittest
 import zipfile
-from pack_library import build_library, read_mods, stage_library, verify_library
+from pack_library import build_library, stage_library, verify_library
 
 
 class LibraryPublisherTests(unittest.TestCase):
@@ -14,7 +14,7 @@ class LibraryPublisherTests(unittest.TestCase):
         self.pack = pathlib.Path(self.temp.name) / "Example Pack"
         (self.pack / "mods").mkdir(parents=True)
         (self.pack / "library").mkdir()
-        (self.pack / "portable-pack.json").write_text(json.dumps({"minecraftVersion": "1.21.1", "loader": {"type": "NeoForge"}}))
+        (self.pack / "portable-pack.json").write_text(json.dumps({"minecraftVersion": "1.21.1", "loader": {"type": "fabric", "version": "0.19.5"}}))
         self.content = {"id": "example", "name": "Example", "relativePath": "Stable Folder", "summary": "A short story", "description": "A longer story",
                         "parents": {"addon": "base"}, "libraryIds": ["helper"]}
         self.pages = {mid: "https://www.curseforge.com/minecraft/mc-mods/" + mid
@@ -24,7 +24,8 @@ class LibraryPublisherTests(unittest.TestCase):
         (self.pack / "library/preview.jpg").write_bytes(b"test preview bytes")
         for mod_id, name in (("base", "Base Mod"), ("addon", "An Addon"), ("helper", "A Helper Library"), ("integration", "Independent integration")):
             with zipfile.ZipFile(self.pack / "mods" / (mod_id + ".jar"), "w") as archive:
-                archive.writestr("META-INF/neoforge.mods.toml", f'[[mods]]\nmodId="{mod_id}"\ndisplayName="{name}"\nversion="1.2.3"\n[[dependencies.{mod_id}]]\nmodId="base"\ntype="required"\n')
+                archive.writestr("fabric.mod.json", json.dumps({"schemaVersion": 1, "id": mod_id, "name": name,
+                                                               "version": "1.2.3", "depends": {"base": "*"}}))
 
     def tearDown(self):
         self.temp.cleanup()
@@ -35,50 +36,12 @@ class LibraryPublisherTests(unittest.TestCase):
     def write_content(self):
         (self.pack / "library/content.json").write_text(json.dumps(self.content))
 
-    def write_inventory(self):
-        inventory = {"schemaVersion": 1,
-                     "minecraftVersion": "1.21.1", "loader": {"type": "NeoForge"},
-                     "sourceJars": {jar.relative_to(self.pack).as_posix(): hashlib.sha256(jar.read_bytes()).hexdigest()
-                                    for jar in (self.pack / "mods").glob("*.jar")},
-                     "mods": [{"id": mid, "name": mid.title(), "version": "selected-2.0"}
-                              for mid in ("base", "addon", "helper", "integration")]}
-        (self.pack / "library/loaded-mods.json").write_text(json.dumps(inventory))
-
-    def test_manual_additions_keep_the_full_actual_inventory_and_frozen_base_ids(self):
-        self.write_inventory()
-        self.content.update(modsTitle="Дополнительные моды", visibleModIds=["integration", "addon"], baseModIds=["base"])
-        self.write_content()
-        with zipfile.ZipFile(io.BytesIO(build_library(self.pack, "r1"))) as archive:
-            data = json.loads(archive.read("library.json"))
-        self.assertEqual("Дополнительные моды", data["modsTitle"])
-        self.assertEqual(["addon", "integration"], data["visibleModIds"])
-        self.assertEqual(["base"], data["baseModIds"])
-        self.assertEqual({"base", "addon", "helper", "integration"}, {mod["id"] for mod in data["mods"]})
-        self.assertEqual(4, len({mod["id"] for mod in data["mods"] if mod["isLoadedMod"]}))
-        # A base version change must not turn its stable ID into an addition.
-        self.content["visibleModIds"] = ["base"]
-        self.write_content()
-        with self.assertRaisesRegex(ValueError, "Base mod cannot"):
-            build_library(self.pack, "r2")
-
-    def test_manual_additions_require_actual_inventory_and_reject_dependencies_or_unknown_ids(self):
-        self.content["visibleModIds"] = ["addon"]
-        self.write_content()
-        with self.assertRaisesRegex(ValueError, "actual loader inventory"):
-            build_library(self.pack, "r1")
-        self.write_inventory()
-        for ids, message in ((["missing"], "not actually loaded"), (["helper"], "Auxiliary library"),
-                             (["addon", "addon"], "Invalid/duplicate"), (None, "Invalid/duplicate")):
-            self.content["visibleModIds"] = ids
-            self.write_content()
-            with self.subTest(ids=ids), self.assertRaisesRegex(ValueError, message):
-                build_library(self.pack, "r1")
-
-    def test_existing_cards_keep_their_complete_lists_without_new_presentation_fields(self):
+    def test_current_card_keeps_its_complete_list_without_addition_filters(self):
         with zipfile.ZipFile(io.BytesIO(build_library(self.pack, "r1"))) as archive:
             data = json.loads(archive.read("library.json"))
         self.assertNotIn("visibleModIds", data)
         self.assertNotIn("modsTitle", data)
+        self.assertNotIn("baseModIds", data)
         self.assertEqual(4, len(data["mods"]))
 
     def test_actual_names_curated_addons_and_libraries_not_the_whole_dependency_graph(self):
@@ -96,6 +59,7 @@ class LibraryPublisherTests(unittest.TestCase):
         self.assertIsNone(mods["integration"]["parentId"])
         self.assertTrue(mods["helper"]["isLibrary"])
         self.assertEqual("1.21.1", data["minecraftVersion"])
+        self.assertEqual("fabric", data["loader"])
         self.assertEqual("revision-one", data["revision"])
         self.assertEqual("Stable Folder", data["relativePath"])
 
@@ -146,47 +110,33 @@ class LibraryPublisherTests(unittest.TestCase):
         self.write_pages()
         nested = io.BytesIO()
         with zipfile.ZipFile(nested, "w") as archive:
-            archive.writestr("META-INF/neoforge.mods.toml", '[[mods]]\nmodId="nested_helper"\ndisplayName="Nested Helper"\nversion="1.0"\n')
+            archive.writestr("fabric.mod.json", json.dumps({"schemaVersion": 1, "id": "nested_helper",
+                                                           "name": "Nested Helper", "version": "1.0"}))
+        unregistered = io.BytesIO()
+        with zipfile.ZipFile(unregistered, "w") as archive:
+            archive.writestr("fabric.mod.json", json.dumps({"schemaVersion": 1, "id": "unregistered_helper", "version": "1.0"}))
         for carrier in ("base", "addon"):
-            with zipfile.ZipFile(self.pack / "mods" / (carrier + ".jar"), "a") as archive:
-                archive.writestr("META-INF/jarjar/metadata.json", json.dumps({"jars": [{"path": "META-INF/jarjar/helper.jar"}]}))
-                archive.writestr("META-INF/jarjar/helper.jar", nested.getvalue())
-                archive.writestr("META-INF/jarjar/not-registered.jar", nested.getvalue())
+            with zipfile.ZipFile(self.pack / "mods" / (carrier + ".jar")) as archive:
+                # Match Fabric's registered nested JARs, not another loader's JarJar table.
+                metadata_path = "fabric.mod.json"
+                metadata = json.loads(archive.read(metadata_path))
+                metadata["jars"] = [{"file": "META-INF/jars/helper.jar"}]
+                entries = {name: archive.read(name) for name in archive.namelist() if name != metadata_path}
+            with zipfile.ZipFile(self.pack / "mods" / (carrier + ".jar"), "w") as archive:
+                for name, data in entries.items():
+                    archive.writestr(name, data)
+                archive.writestr(metadata_path, json.dumps(metadata))
+                archive.writestr("META-INF/jars/helper.jar", nested.getvalue())
+                archive.writestr("META-INF/jars/not-registered.jar", unregistered.getvalue())
         with zipfile.ZipFile(io.BytesIO(build_library(self.pack, "r1"))) as archive:
             mods = json.loads(archive.read("library.json"))["mods"]
         self.assertEqual(5, len(mods))
         self.assertEqual(1, sum(mod["id"] == "nested_helper" for mod in mods))
         self.assertTrue(all(mod["isLoadedMod"] for mod in mods))
 
-    def test_non_mod_components_are_visible_libraries_without_fabric_or_invented_loaded_ids(self):
-        with zipfile.ZipFile(self.pack / "mods/scalablecatsforce-library.jar", "w") as archive:
-            archive.writestr("META-INF/MANIFEST.MF", "FMLModType: LANGPROVIDER\nImplementation-Version: 3.3.1\n")
-        self.pages["scalablecatsforce"] = "https://www.curseforge.com/minecraft/mc-mods/scalable-cats-force"
-        self.write_pages()
-        with zipfile.ZipFile(io.BytesIO(build_library(self.pack, "r1"))) as archive:
-            mods = json.loads(archive.read("library.json"))["mods"]
-        component = next(mod for mod in mods if mod["id"] == "scalablecatsforce")
-        self.assertFalse(component["isLoadedMod"])
-        self.assertTrue(component["isLibrary"])
-        self.assertEqual("3.3.1", component["version"])
-
-    def test_forge_metadata_uses_manifest_version_and_ignores_fabric_only_nested_libraries(self):
-        fabric = io.BytesIO()
-        with zipfile.ZipFile(fabric, "w") as archive:
-            archive.writestr("fabric.mod.json", json.dumps({"id": "fabric_only", "version": "1.0"}))
-        carrier = io.BytesIO()
-        with zipfile.ZipFile(carrier, "w") as archive:
-            archive.writestr("META-INF/MANIFEST.MF", "Implementation-Version: 2.4.1\n")
-            archive.writestr("META-INF/mods.toml", '[[mods]]\nmodId="real_mod"\nversion="${file.jarVersion}"\n')
-            archive.writestr("META-INF/jarjar/metadata.json", json.dumps({"jars": [{"path": "META-INF/jarjar/fabric.jar"}]}))
-            archive.writestr("META-INF/jarjar/fabric.jar", fabric.getvalue())
-        mods = read_mods(carrier.getvalue(), "carrier.jar", loader="forge")
-        self.assertEqual(["real_mod"], [mod["id"] for mod in mods])
-        self.assertEqual("2.4.1", mods[0]["version"])
-
     def test_actual_loader_inventory_resolves_selected_ids_and_versions_and_rejects_stale_jars(self):
         inventory = {"schemaVersion": 1,
-                     "minecraftVersion": "1.21.1", "loader": {"type": "NeoForge"},
+                     "minecraftVersion": "1.21.1", "loader": {"type": "fabric", "version": "0.19.5"},
                      "sourceJars": {jar.relative_to(self.pack).as_posix(): hashlib.sha256(jar.read_bytes()).hexdigest()
                                     for jar in (self.pack / "mods").glob("*.jar")},
                      "mods": [{"id": mid, "name": mid.title(), "version": "selected-2.0"}
