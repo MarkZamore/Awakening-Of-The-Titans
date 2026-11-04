@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_ACTUAL_UNMODIFIED_YOSBR_FILE_COPY",
+  "yosbrSha256": "db4c744fd71f5617639cb0fdff72378b08d2852004f4045c62090de1bf53afcb",
+  "fabricLoaderVersion": "0.19.5",
+  "fabricLoaderSha256": "93044e4dd46de5d8136701292f05e868da096d2c9fddb4793e4fdbcc63efc695",
+  "defaultsSha256": "ac54b2c582393436b6dec66bb327fc04dfdaee1d5b8acceb4c16aa4645ffe1fe",
+  "missingFileInitializedExactly": true,
+  "existingFileBytesAndMtimeUnchanged": true,
+  "updatedDefaultsDoNotOverwritePersonalOptions": true,
+  "gameProvider": "Synthetic path-only proxy with real Fabric API",
+  "minecraftClientRunClaimed": false
+}

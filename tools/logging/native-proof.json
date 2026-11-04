@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS_NATIVE_INPUT_AND_LOG4J_FILTER",
+  "minecraftVersion": "1.21.1",
+  "loader": "Fabric 0.19.5",
+  "logger": "net.minecraft.class_2535",
+  "nativeLoggerResolvedFromInitializedClass": true,
+  "officialConnectionClass": "vt",
+  "officialClientSha256": "499f6897d1837516680f3114072d8106e11c9adcd933fe5cf051b551089b0c99",
+  "officialConnectionClassSha256": "e0d221cdc960474912e5951939e2603695d3e87f7beeedd33d204f33326285f8",
+  "mappedConnectionClassSha256": "fa3839dd43488a2dbb6f5d82b0f900e0209129b9d0a4f713bd12a4d4a85dcf47",
+  "caller": "exceptionCaught(ChannelHandlerContext,Throwable)",
+  "debugThrowableLabels": [
+    "Failed to sent packet",
+    "Double fault",
+    "Skipping packet due to errors",
+    "Timeout"
+  ],
+  "nativeDefault": {
+    "url": "https://piston-data.mojang.com/v1/objects/bd65e7d2e3c237be76cfbef4c2405033d7f91521/client-1.12.xml",
+    "sizeBytes": 888,
+    "sha1": "bd65e7d2e3c237be76cfbef4c2405033d7f91521",
+    "sha256": "03e30ee5bd5c1fc723d1049e2e4e8b3ad4c4992514f3206fc4b54637488b83e4"
+  },
+  "deliveryTemplateSha256": "c794d7578091045f7f46aa9dbc52c8859b287d192583031f8fc59dcd2f751015",
+  "log4jVersion": "2.22.1",
+  "caughtThrowableStacks": 4,
+  "normalInfoWarnErrorPreserved": true,
+  "packetAndOtherDebugRejected": true,
+  "caughtDebugConsoleOutputRejected": true,
+  "fullClientAcceptanceClaimed": false
+}

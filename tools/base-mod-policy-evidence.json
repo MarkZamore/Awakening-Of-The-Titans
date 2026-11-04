@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "policy": "preserve-awakening-1.8.1-gameplay",
+  "requiredBaseEvidence": "Native Fabric metadata from the exact original JARs, associated with their original CurseForge project rows in upstream-lock.json",
+  "forbidden": [
+    {
+      "id": "gravestones",
+      "projectUrl": "https://modrinth.com/mod/pneumono_gravestones",
+      "versionId": "Fx2DJa18",
+      "fileName": "gravestones-1.4.2+1.21+A.jar",
+      "sha256": "5308ecde34b173999414042dd27bc9d48125bd56742a14fe005f22d287b45e4a"
+    },
+    {
+      "id": "pneumonocore",
+      "projectUrl": "https://modrinth.com/mod/pneumono_core",
+      "versionId": "2Wljsd7H",
+      "fileName": "pneumonocore-1.3.1+1.21+A.jar",
+      "sha256": "121364fe9b936c6599632e4dc234c45c835e2dd451d2fb9cc4851b1b545a7afb"
+    }
+  ],
+  "verification": "Downloaded official Modrinth CDN payloads into memory, checked official SHA512, then read actual fabric.mod.json IDs. These rejected JARs are not installed or shipped.",
+  "boundary": "This explicitly guards the required eight original projects and the two user-rejected native IDs; it is not an automatic taxonomy of every possible grave mod. New mod IDs still require source/page/compatibility review."
+}

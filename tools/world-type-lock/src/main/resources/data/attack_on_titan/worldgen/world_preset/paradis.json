@@ -1,0 +1,54 @@
+{
+  "dimensions": {
+    "minecraft:overworld": {
+      "type": "minecraft:overworld",
+      "generator": {
+        "type": "minecraft:noise",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "preset": "minecraft:overworld"
+        },
+        "settings": "minecraft:overworld"
+      }
+    },
+    "minecraft:the_nether": {
+      "type": "minecraft:the_nether",
+      "generator": {
+        "type": "minecraft:noise",
+        "biome_source": {
+          "type": "minecraft:multi_noise",
+          "preset": "minecraft:nether"
+        },
+        "settings": "minecraft:nether"
+      }
+    },
+    "minecraft:the_end": {
+      "type": "minecraft:the_end",
+      "generator": {
+        "type": "minecraft:noise",
+        "biome_source": {
+          "type": "minecraft:the_end"
+        },
+        "settings": "minecraft:end"
+      }
+    },
+    "dannys-aot:paradis": {
+      "type": "dannys-aot:paradis",
+      "generator": {
+        "type": "dannys-aot:paradis",
+        "titan_country": "dannys-aot:titan_country",
+        "giant_forest": "dannys-aot:giant_forest",
+        "titan_highlands": "dannys-aot:titan_highlands",
+        "titan_hills": "dannys-aot:titan_hills",
+        "titan_mountains": "dannys-aot:titan_mountains"
+      }
+    },
+    "dannys-aot:paths": {
+      "type": "dannys-aot:paths",
+      "generator": {
+        "type": "dannys-aot:paths",
+        "biome": "dannys-aot:paths"
+      }
+    }
+  }
+}

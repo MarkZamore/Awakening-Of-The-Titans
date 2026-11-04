@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="WorldTransferLab.cs" />
+    <Reference Include="LANMinecraft"><HintPath>$(LauncherAssemblyDirectory)/LANMinecraft.dll</HintPath></Reference>
+  </ItemGroup>
+  <Target Name="RequireLauncherAssembly" BeforeTargets="ResolveReferences">
+    <Error Condition="'$(LauncherAssemblyDirectory)' == ''" Text="Pass a complete built launcher directory." />
+  </Target>
+</Project>

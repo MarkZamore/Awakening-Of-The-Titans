@@ -1,0 +1,9 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.cinemamod.mcef.mixins",
+  "refmap": "mcef.refmap.json",
+  "compatibilityLevel": "JAVA_21",
+  "client": ["CefDownloadMixin"],
+  "injectors": {"defaultRequire": 1}
+}

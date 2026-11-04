@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "packId": "attack-on-titan",
+  "platform": {
+    "minecraftVersion": "1.21.1",
+    "loaderType": "fabric"
+  },
+  "requiredUpstream": [
+    {
+      "path": "config/GlobalSpawn.json5",
+      "sha256": "cdcd6953e72fd084ee3d6948b2f6119e27c5ce114313e87719ab642549d70c7c",
+      "reason": "Keep native authored first spawn and respawn in dannys-aot:paradis."
+    },
+    {
+      "path": "config/fancymenu/options.txt",
+      "sha256": "b2fafd88a2a84685f6075106f7533cfe3111a90822674137f1e0a3ab95a0600a",
+      "booleanSettings": {
+        "show_customization_overlay": false,
+        "show_welcome_screen": false
+      },
+      "reason": "Preserve the authored player menu with no editor toolbar or first-run welcome screen; do not rewrite personal mod configuration."
+    }
+  ],
+  "operations": [
+    {
+      "operation": "replace",
+      "path": "config/fancymenu/customization/spawn_layout.txt",
+      "source": "tools/overlay/config/fancymenu/customization/spawn_layout.txt",
+      "sizeBytes": 15722,
+      "sha256": "3322ed42448ab81ce0b886416c3e54e6612fd5403d76ecfee86487c8a6626bb4",
+      "reason": "Only the author Paradis start is supported; remove both settings-writing choices and restart actions.",
+      "upstreamSha256": "5c2f16df8e4a4f3c558e9e7c48a0f402cfd7c9c46ee4c534bf818282e159f6a7"
+    },
+    {
+      "operation": "replace",
+      "path": "config/fancymenu/customization/world_type_layout.txt",
+      "source": "tools/overlay/config/fancymenu/customization/world_type_layout.txt",
+      "sizeBytes": 10406,
+      "sha256": "8b41fb017020fcf7c73643d1c4d26dcdb569040969a7a0446242319c24d1022b",
+      "reason": "Only the author Paradis start is supported; remove both settings-writing choices and restart actions.",
+      "upstreamSha256": "fb840a777e4699341b793874ff9874dc97ecb5584d70da50f99a35ca70062fe7"
+    },
+    {
+      "operation": "replace",
+      "path": "config/fancymenu/customization/create_world_screen_layout.txt",
+      "source": "tools/overlay/config/fancymenu/customization/create_world_screen_layout.txt",
+      "sizeBytes": 32580,
+      "sha256": "0fefe40daaa43237903fb4d08dd588dd25e8da3e7116050ebbbe37094717ac6b",
+      "reason": "Display the required author Paradis start instead of the inaccurate Overworld default label.",
+      "upstreamSha256": "e6ed9cc919a3ce39224fbb9cfdf57cced763256efd5ec00d0150716230e038db",
+      "template": "pack-display-name"
+    },
+    {
+      "operation": "add",
+      "path": "launcher/pack-owned.txt",
+      "source": "tools/overlay/launcher/pack-owned.txt",
+      "sizeBytes": 231,
+      "sha256": "aca47a7399d037e4e3e347fd69672e7cd9d88d3f3363315d9c9c4fae2c6d6b1a",
+      "reason": "Own fixed spawn/menu, bounded logging XML and the missing-file-only resource defaults template; never own personal root options.txt."
+    },
+    {
+      "operation": "add",
+      "path": "mods/aot-world-type-lock-1.0.2.jar",
+      "source": "tools/overlay/mods/aot-world-type-lock-1.0.2.jar",
+      "sizeBytes": 36159,
+      "sha256": "af418ee72bf91f46af654d34cc3f4e7a3d0dc723c178aaceaf1daa2339117f02",
+      "reason": "Restrict world creation, resolve native GlobalSpawn safe respawn at the exact validation site, and relocate exact MCEF native/browser cache roots outside mods while preserving official bootstrap/checksum guards; author JARs remain unchanged.",
+      "modIds": [
+        "aot_world_type_lock"
+      ]
+    },
+    {
+      "operation": "add",
+      "path": "config/log4j2.xml",
+      "source": "tools/overlay/config/log4j2.xml",
+      "sizeBytes": 1718,
+      "sha256": "c794d7578091045f7f46aa9dbc52c8859b287d192583031f8fc59dcd2f751015",
+      "reason": "Pack-owned bounded native Fabric caught-network-exception diagnostics; preserve normal logging and reject packet DEBUG flood."
+    },
+    {
+      "operation": "add",
+      "path": "launcher/jvm-args.txt",
+      "source": "tools/overlay/launcher/jvm-args.txt",
+      "sizeBytes": 44,
+      "sha256": "a1f3a734e672681e16e8db9a35ece57236720f99f95a85bac9eb2caac1e19d3c",
+      "reason": "Pack-owned bounded native Fabric caught-network-exception diagnostics; preserve normal logging and reject packet DEBUG flood."
+    },
+    {
+      "operation": "add",
+      "path": "mods/yosbr-0.1.2.jar",
+      "source": "tools/overlay/mods/yosbr-0.1.2.jar",
+      "sizeBytes": 17373,
+      "sha256": "db4c744fd71f5617639cb0fdff72378b08d2852004f4045c62090de1bf53afcb",
+      "modIds": [
+        "yosbr"
+      ],
+      "projectId": 374274,
+      "fileId": 4581910,
+      "sourceUrl": "https://edge.forgecdn.net/files/4581/910/yosbr-0.1.2.jar",
+      "websiteUrl": "https://www.curseforge.com/minecraft/mc-mods/yosbr",
+      "reason": "Native missing-file-only initialization restores authored resource pack selection without copying graphics/language/key settings or replacing existing options."
+    },
+    {
+      "operation": "add",
+      "path": "config/yosbr/options.txt",
+      "source": "tools/overlay/config/yosbr/options.txt",
+      "sizeBytes": 639,
+      "sha256": "ac54b2c582393436b6dec66bb327fc04dfdaee1d5b8acceb4c16aa4645ffe1fe",
+      "authorOptionsProjection": "resource-packs-only",
+      "upstreamOptionsSha256": "ba2a6ead2141e6b44fac3ade8be203020b9cda98bfcb900b0ee4600259278cc6",
+      "reason": "First-launch defaults contain only the exact authored resource-pack lists/order, with no personal rendering or other options."
+    }
+  ],
+  "networkLogging": "fabric-1.21.1-caught-throwables",
+  "loggingReceipt": {
+    "path": "tools/network-logging-policy.json",
+    "sizeBytes": 622,
+    "sha256": "bb11ea246eacabb629fd0d51c59d00d8186f39db072dd488ea45614f028b6aba"
+  },
+  "initialResourceDefaults": "yosbr-resource-packs-only",
+  "baseModPolicy": "preserve-awakening-1.8.1-gameplay",
+  "requiredBaseMods": [
+    {
+      "id": "aot_camera_roll",
+      "projectId": 1705230
+    },
+    {
+      "id": "atakanshift",
+      "projectId": 1653965
+    },
+    {
+      "id": "burnt",
+      "projectId": 1511449
+    },
+    {
+      "id": "dannys-aot",
+      "projectId": 1412946
+    },
+    {
+      "id": "daotoc",
+      "projectId": 1757587
+    },
+    {
+      "id": "eldian_npcs",
+      "projectId": 1736662
+    },
+    {
+      "id": "los_gear",
+      "projectId": 1717646
+    },
+    {
+      "id": "yigd",
+      "projectId": 544912
+    }
+  ],
+  "forbiddenModIds": [
+    "gravestones",
+    "pneumonocore"
+  ],
+  "exactRuntimeTargets": [
+    {
+      "id": "globalspawn",
+      "projectId": 427483,
+      "sha256": "8c9085326528aa1b13d4a110065a80bc6abd2dfe49fd353618b23648e593f9a9",
+      "reason": "Safe respawn helper injection is qualified only for this exact original GlobalSpawn JAR."
+    },
+    {
+      "id": "mcef",
+      "projectId": 636236,
+      "sha256": "b5270016b85a6c3c26cc88c11ca3c128b937e6b98d3c86605d48502693f81553",
+      "reason": "Client-only MCEF cache relocation is qualified only for this exact original author JAR; dedicated server omits this client-only target."
+    }
+  ]
+}

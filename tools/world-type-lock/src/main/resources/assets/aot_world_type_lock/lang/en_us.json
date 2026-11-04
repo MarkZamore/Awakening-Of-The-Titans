@@ -1,0 +1,6 @@
+{
+  "generator.attack_on_titan.paradis": "Paradis",
+  "aot_world_type_lock.unavailable": "Paradis unavailable",
+  "aot_world_type_lock.error.title": "Cannot create this world",
+  "aot_world_type_lock.error.body": "Required Attack on Titan world resources are missing. Repair or update the pack, then try again."
+}

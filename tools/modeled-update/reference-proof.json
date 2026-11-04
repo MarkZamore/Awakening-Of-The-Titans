@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "status": "PASS",
+  "packId": "attack-on-titan",
+  "scope": "Real exact upstream inputs and current mandatory overlay; synthetic update archives only",
+  "originalOfficialSnapshot": {
+    "projectId": 1535260,
+    "fileId": 9427704,
+    "version": "1.8.1",
+    "archive": {
+      "url": "https://mediafilez.forgecdn.net/files/9427/704/Attack-On-Titan-1.8.1.zip",
+      "sizeBytes": 78417346,
+      "sha256": "a6343f7272933f332ecd7436c83ca200b3d49cf59b69898858d2c3c1dac74989"
+    },
+    "manifestFiles": 115,
+    "overrides": 457
+  },
+  "overlayOperations": 9,
+  "cases": [
+    {
+      "label": "non-target-config",
+      "fixtureOrigin": "fixture://modeled-author-update/non-target-config.zip",
+      "syntheticArchive": {
+        "sizeBytes": 78416649,
+        "sha256": "88b83ec778fb7c292ce4aac2a7403ecc2dff8780678240ac6a1deb1dc78b4463"
+      },
+      "syntheticVersion": "1.8.1-synthetic-non-target-config",
+      "officialReleaseClaimed": false,
+      "changedPath": "config/openloader/options.json",
+      "change": "One trailing LF; semantics preserved",
+      "changedOverride": {
+        "sizeBytes": 1081,
+        "sha256": "267ac7f719e6bd6590a05cc0fbd01452a2f6b233d27820c49ff0d8f9a865b2d4"
+      },
+      "expected": "accept",
+      "status": "PASS",
+      "preparation": {
+        "status": "PASS",
+        "files": 579,
+        "upstreamVersion": "1.8.1-synthetic-non-target-config",
+        "overlayOperations": 9,
+        "runtimeAcceptanceClaimed": false
+      },
+      "overlayOutputs": [
+        {
+          "path": "config/fancymenu/customization/spawn_layout.txt",
+          "sizeBytes": 15722,
+          "sha256": "3322ed42448ab81ce0b886416c3e54e6612fd5403d76ecfee86487c8a6626bb4"
+        },
+        {
+          "path": "config/fancymenu/customization/world_type_layout.txt",
+          "sizeBytes": 10406,
+          "sha256": "8b41fb017020fcf7c73643d1c4d26dcdb569040969a7a0446242319c24d1022b"
+        },
+        {
+          "path": "config/fancymenu/customization/create_world_screen_layout.txt",
+          "sizeBytes": 32582,
+          "sha256": "6453cbd16b5d2395dea037f81e5baaabe1beb7e5a285a3cb0c9255f353efd2d9"
+        },
+        {
+          "path": "launcher/pack-owned.txt",
+          "sizeBytes": 231,
+          "sha256": "aca47a7399d037e4e3e347fd69672e7cd9d88d3f3363315d9c9c4fae2c6d6b1a"
+        },
+        {
+          "path": "mods/aot-world-type-lock-1.0.2.jar",
+          "sizeBytes": 36159,
+          "sha256": "af418ee72bf91f46af654d34cc3f4e7a3d0dc723c178aaceaf1daa2339117f02"
+        },
+        {
+          "path": "config/log4j2.xml",
+          "sizeBytes": 1718,
+          "sha256": "c794d7578091045f7f46aa9dbc52c8859b287d192583031f8fc59dcd2f751015"
+        },
+        {
+          "path": "launcher/jvm-args.txt",
+          "sizeBytes": 44,
+          "sha256": "a1f3a734e672681e16e8db9a35ece57236720f99f95a85bac9eb2caac1e19d3c"
+        },
+        {
+          "path": "mods/yosbr-0.1.2.jar",
+          "sizeBytes": 17373,
+          "sha256": "db4c744fd71f5617639cb0fdff72378b08d2852004f4045c62090de1bf53afcb"
+        },
+        {
+          "path": "config/yosbr/options.txt",
+          "sizeBytes": 639,
+          "sha256": "ac54b2c582393436b6dec66bb327fc04dfdaee1d5b8acceb4c16aa4645ffe1fe"
+        }
+      ]
+    },
+    {
+      "label": "changed-menu-target",
+      "fixtureOrigin": "fixture://modeled-author-update/changed-menu-target.zip",
+      "syntheticArchive": {
+        "sizeBytes": 78416650,
+        "sha256": "8350d994c7546ceacffeedadd9982b7ef4ce4aace39b1205a3d5374eb7cd8fec"
+      },
+      "syntheticVersion": "1.8.1-synthetic-changed-menu-target",
+      "officialReleaseClaimed": false,
+      "changedPath": "config/fancymenu/customization/create_world_screen_layout.txt",
+      "change": "One trailing LF; semantics preserved",
+      "changedOverride": {
+        "sizeBytes": 32632,
+        "sha256": "ee27b267a71fb514875a2dec9b734583340a79a7625260ee446177f07d31d409"
+      },
+      "expected": "block",
+      "status": "PASS",
+      "blockingGuard": "Conflicting upstream overlay target: config/fancymenu/customization/create_world_screen_layout.txt",
+      "activeCandidateFiles": 0
+    },
+    {
+      "label": "changed-required-spawn",
+      "fixtureOrigin": "fixture://modeled-author-update/changed-required-spawn.zip",
+      "syntheticArchive": {
+        "sizeBytes": 78416646,
+        "sha256": "999a4354741ad419ca19001be389860efc1e8937fbe23674e2791a385ab81916"
+      },
+      "syntheticVersion": "1.8.1-synthetic-changed-required-spawn",
+      "officialReleaseClaimed": false,
+      "changedPath": "config/GlobalSpawn.json5",
+      "change": "One trailing LF; semantics preserved",
+      "changedOverride": {
+        "sizeBytes": 650,
+        "sha256": "45172c0d5b2217a322289af9c4507f0619a996de1955363b5844656927771eaa"
+      },
+      "expected": "block",
+      "status": "PASS",
+      "blockingGuard": "Changed required upstream mechanism: config/GlobalSpawn.json5",
+      "activeCandidateFiles": 0
+    }
+  ],
+  "currentSourceControl": {
+    "files": 583,
+    "sha256": "e5f7d765098768686b7a3aa442a2373da2b0005a6f7b6fe13b9661986f0fa459"
+  },
+  "currentSourceUnchanged": true,
+  "publicReleaseControl": {
+    "tag": "pack-latest",
+    "state": "absent"
+  },
+  "publicReleaseObserved": true,
+  "publicReleaseUnchanged": true,
+  "runtimeAcceptanceClaimed": false,
+  "personalWorldBackupClaimed": false
+}

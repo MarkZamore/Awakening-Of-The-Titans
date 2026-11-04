@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="SkinPeerLab.cs" />
+    <Reference Include="LANMinecraft"><HintPath>$(LauncherAssemblyDirectory)/LANMinecraft.dll</HintPath></Reference>
+  </ItemGroup>
+  <Target Name="RequireLauncherAssembly" BeforeTargets="ResolveReferences">
+    <Error Condition="'$(LauncherAssemblyDirectory)' == ''" Text="Pass the directory of one complete built launcher." />
+  </Target>
+</Project>

@@ -1,0 +1,9 @@
+* text=auto eol=lf
+*.jar binary
+*.jpg binary
+*.png binary
+*.zip binary
+tools/overlay/config/** -text
+tools/overlay/config/fancymenu/customization/*.txt -whitespace
+tools/logging/*.xml -text
+config/log4j2.xml -text

@@ -1,0 +1,72 @@
+name: Publish pack
+on:
+  push:
+    branches: [main]
+concurrency:
+  group: pack-latest
+  cancel-in-progress: false
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@v5
+        with:
+          distribution: microsoft
+          java-version: '25.0.2'
+      - name: Restore exact derivative with mandatory overlay
+        run: python -B tools/restore_distribution.py --pack .
+      - name: Reproduce the pinned helper
+        run: python -B tools/world-type-lock/build_helper.py --output artifacts/world-type-lock --jdk "$JAVA_HOME" --verify-installed mods/aot-world-type-lock-1.0.2.jar
+      - name: Validate source and tests
+        run: |
+          python -B -m unittest discover -s tools -p 'test_*.py'
+          python -B tools/restore_distribution.py --pack . --verify-only
+      - name: Stage and verify payloads
+        run: |
+          python -B tools/generate_manifest.py --pack . --out dist --revision "$GITHUB_SHA"
+          python -B tools/generate_manifest.py --pack . --out dist --verify-only
+      - name: Publish assets before manifest
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          display_name=$(python -B tools/pack_identity.py | python -c 'import sys,json; print(json.load(sys.stdin)["name"])')
+          git tag -f pack-latest "$GITHUB_SHA"
+          git push -f origin refs/tags/pack-latest
+          if gh release view pack-latest >/dev/null 2>&1; then
+            gh release edit pack-latest --title "$display_name" --notes "Rolling pack release. Revision: $GITHUB_SHA"
+          else
+            gh release create pack-latest --target "$GITHUB_SHA" --title "$display_name" --notes "Rolling pack release. Revision: $GITHUB_SHA"
+          fi
+          # Keep every prior payload until the new authoritative manifest is live.
+          mkdir -p artifacts
+          gh release view pack-latest --json assets --jq '.assets[] | select(.state == "uploaded") | "\(.name)|\(.size)"' > artifacts/published-assets.txt
+          : > artifacts/wanted-assets.txt
+          for file in dist/assets/*; do
+            name=$(basename "$file")
+            echo "$name" >> artifacts/wanted-assets.txt
+            if grep -Fxq "$name|$(stat -c %s "$file")" artifacts/published-assets.txt; then continue; fi
+            for attempt in 1 2 3 4 5; do
+              gh release upload pack-latest "$file" --clobber && break
+              if [ "$attempt" -eq 5 ]; then exit 1; fi
+              sleep "$((attempt * 5))"
+            done
+          done
+          for attempt in 1 2 3 4 5; do
+            gh release upload pack-latest dist/pack-manifest.json --clobber && break
+            if [ "$attempt" -eq 5 ]; then exit 1; fi
+            sleep "$((attempt * 5))"
+          done
+          echo pack-manifest.json >> artifacts/wanted-assets.txt
+          sort -o artifacts/wanted-assets.txt artifacts/wanted-assets.txt
+          cut -d'|' -f1 artifacts/published-assets.txt | sort > artifacts/previous-assets.txt
+          while IFS= read -r name; do
+            [ -n "$name" ] || continue
+            gh release delete-asset pack-latest "$name" --yes
+          done < <(comm -23 artifacts/previous-assets.txt artifacts/wanted-assets.txt)

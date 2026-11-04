@@ -1,0 +1,1383 @@
+{
+  "schemaVersion": 1,
+  "minecraftVersion": "1.21.1",
+  "loader": {
+    "type": "fabric",
+    "version": "0.19.5"
+  },
+  "capturedAtUtc": "2026-11-04T15:49:40.850054200Z",
+  "capture": {
+    "method": "Fabric Loader getAllMods IDs and selected versions from initialized full production-profile client; names retained only for unchanged same-JAR metadata or checked unchanged helper metadata",
+    "run": "final-06",
+    "observedLoadedCount": 253,
+    "platformIdsExcluded": [
+      "fabricloader",
+      "java",
+      "minecraft"
+    ],
+    "managedComponentsExcluded": [
+      "e4steam"
+    ],
+    "sourceJarsMatchedRunningInstance": true,
+    "sourceJarsMatchedPrelaunchSnapshot": true
+  },
+  "sourceJars": {
+    "mods/0.3-mc1.21.1fabric-3.4.3.3.jar": "5d14c53b710ac5f495d08d79d821f6902f72cbe34ef0581a75edd6a0ad8700f4",
+    "mods/1786342327822-createtnt-1.21.1-fabric-CreateTNT1.0.0.jar": "91d23b9658c8d000f05a86d02b52cb66cb62fd2ef6879c6767ddc5c3a289115e",
+    "mods/aaa_particles-fabric-1.21.1-2.3.1.jar": "a816f74c3d86134ca7d89b5d8f45d5901ee5b4785ee6db7ce269d9c45a323971",
+    "mods/aaa_particles_world-fabric-1.21.1-2.0.0.jar": "1a9ee35e4df9f69566d75d823477e9ae929e844ec6f80b917d1628ea73bf33e2",
+    "mods/almanac-fabric-1.21.1-1.26.10.3.jar": "02c31b16690284cf9e9e107645dfcf7b9467b69fb4cefbe54d3cac30c8cc3aae",
+    "mods/AmbientSounds_FABRIC_v6.3.11_mc1.21.1.jar": "8ddd5faafa0a66edb2f52205eaaa1a21332719c5b98ce6851a756f6b6856fba8",
+    "mods/aot-camera-roll-1.0.2.jar": "b9e48181830bb6eb95302223cca7a2590ac66831eac3497704faa11c1fc50fbe",
+    "mods/aot-world-type-lock-1.0.2.jar": "af418ee72bf91f46af654d34cc3f4e7a3d0dc723c178aaceaf1daa2339117f02",
+    "mods/appleskin-fabric-mc1.21-3.0.6.jar": "9a19cec1294b1bc708392a08e6926dcb85d7378ec5ad909a4b6fcb8bc3bfeaa2",
+    "mods/architectury-13.0.11-fabric.jar": "ab17d5c7d8d8c93cc713437ed426f0ff0d6f802a48fff0c579a9bd3aaa833efd",
+    "mods/BadOptimizations-2.4.1-1.21.1.jar": "22e2467892d3706f43d1cf2aa637785bb8601c20b0098a82ab956e6a8fc4d2ba",
+    "mods/baguettelib-1.21.1-Fabric-2.0.5.jar": "79193994d62fda88acda20402acda3889c3f9211564a60a6fb8b749ba43b5db6",
+    "mods/Blood N' Particles v1.4.0 - Fabric 1.21.1.jar": "985563f72ac1d0a417e9d6ee879bf962b3b3bb9de164974b12b5687858756056",
+    "mods/burnt_fabric-1.21.1-0.1.6.3.jar": "c8f5b9338d02394d713fddee7e77a59bcaf5e2d6f19c0934c937f36f378dffd5",
+    "mods/c2me-fabric-mc1.21.1-0.4.0-alpha.0.30.jar": "f135f582a97249c23dc650190135c9b7851331cb321ee13ad268d8bd802d3911",
+    "mods/CameraOverhaul-v2.1.2-fabric+mc[1.21-1.21.2].jar": "0b09af97793995b0a93ec0a164ff8d0c189c81e9e07f442974abbac229fe53cd",
+    "mods/chunkactivitytracker-fabric-1.0.1-1.21.1.jar": "3fd78c63cbaa6a2b2d8c122f6d04be8fb221ef9df4ee401db4689c727a833719",
+    "mods/ChunkDebug-2.1.2+1.21.1.jar": "b68f3041fb5c2f3781ade3d9467d365dc848a67110e41709622033c8dd1b7f8f",
+    "mods/civilian_aviation-1.0.3-1.21.1-fabric.jar": "6916fc9d8d48bfcc45c15a863eec7d91ef76b0d7bfde0d3e49df5982a8f64726",
+    "mods/cloth-config-15.0.140-fabric.jar": "33894e95da3af59014b39d126586d5241e07ea39f8618763e30dab637405f95f",
+    "mods/cosmeticarmorreworkedforked-fabric-1.21.1-0.0.4.jar": "65b4151f352f63746a9f9e19eee4ca1579dbfba0c431694dfd846c4c1559ddc0",
+    "mods/CreativeCore_FABRIC_v2.13.39_mc1.21.1.jar": "a0813d3b342fae016eaad9b11a3f153efba01a2caa1221033adb865c49140f70",
+    "mods/cupboard-fabric-1.21.1-4.2.jar": "9998140e52c245e656f4c3b8f15a71b425dadfd56010bf53c7245b6185bb00ce",
+    "mods/dannys-aot-2.5.2.jar": "eb30a874e618cbf1f356301d672e7b322673babfa46f8212bc0e98f112eb085d",
+    "mods/daot-overlyconfigured-1.0.1.jar": "40e8c4f0d7c61af991b9d8e551d8fc7ff12abfeb58a1b17a0fd60539ce8ec06d",
+    "mods/Debugify-1.21.1+1.0.jar": "e61e83875190150337a2366d9374f04865654de7bdf83e6ab29d9915899f8d7a",
+    "mods/does_it_tick-fabric-1.1.4-1.21.1.jar": "881c50d79d6806ceca5933eeb6eb0d565ad9e124cd85178b6c6920afd7656007",
+    "mods/eldian-npcs-0.2.2.jar": "0411cbbbc986ef15bf80c5ea83f63a37e1e59c9514df151201e27d6b8c38b474",
+    "mods/EnhancedVisuals_FABRIC_v1.8.34_mc1.21.1.jar": "ede7115723d2b9f31148bf641305fb1c187ec797594b81e274be865aad6f5e15",
+    "mods/ExtraLib-3.1.1-1.21.1-Fabric.jar": "a8847b22bbbdd3b07c8f8442b6d245be13e286af09481c7a97349e8b92be557e",
+    "mods/ExtraQuests-1.7.0-1.21.1-Fabric.jar": "175f3bffdf62453e5101e799a8f84f85375dddbc1326ef10f31b804ff7a5bbe8",
+    "mods/fabric-api-0.116.15+1.21.1.jar": "a61a10f730ab8aa45ff42486ee65699e6e51c28a0c168deb161e7d4029473aa3",
+    "mods/fabric-language-kotlin-1.14.2+kotlin.2.4.21.jar": "fbdbf5286ab9d65fedb49e6e01c15e338ae303eb7b9d8c7423d0a9bcfe526ef9",
+    "mods/fallingleaves-1.17.1+1.21.1.jar": "67e2071d6c25e2638573e6ee91a146b77e38d77edddbb26f45006ab878ebca77",
+    "mods/fancymenu_fabric_3.9.14_MC_1.21.1.jar": "02a9d39515e79fd2fc628f0268770b95413eb5187667520ba2911a6111d02136",
+    "mods/FarmersDelight-1.21.1-3.3.6+refabricated.jar": "c719a1e92f1e16f953265069afa9b5d52f2119b434e1f6e0ad4d7a1e449941dc",
+    "mods/ferritecore-7.0.3-fabric.jar": "98c3ab1d5aab8f14b5d082d3f1a467727fd335f02d124555c94339761c4c18f2",
+    "mods/ForgeConfigAPIPort-v21.1.6-1.21.1-Fabric.jar": "2e3a8f0e3bda85a7d722720e7ce879cbd9d028d9395c6fc224d329b3c982d9b1",
+    "mods/ftb-essentials-fabric-2101.1.10.jar": "9e85afd6a77ed7aaae770d6d3e019fcc753c0e286aa6328558b03bf0c66ca12e",
+    "mods/ftb-library-fabric-2101.1.36.jar": "0344e19cd35c0bb6aa608343cc352c9733e400b946b52fd49beec2d7fc0406b6",
+    "mods/ftb-quests-fabric-2101.1.36.jar": "68df590b681255e11c52d1850d0dd02d3ad9a3c5d82fdb9e37312111a60ddefb",
+    "mods/ftb-teams-fabric-2101.1.11.jar": "39e34b438e0232a614a8cf1269fcff2705b85fde8b930a03d558bc66a03c7cf6",
+    "mods/geckolib-fabric-1.21.1-4.9.2.jar": "eac4cf55e1cb99b22cb91ea87c774d2a670c1711a80f4aff50e6ad56b6c58e7e",
+    "mods/GlitchCore-fabric-1.21.1-2.1.0.2.jar": "9eb2eff5bec5e2084aa272522058001008c83e994babe4e31f9f87e92e21d986",
+    "mods/globalspawn-2.0.0+1.21.jar": "8c9085326528aa1b13d4a110065a80bc6abd2dfe49fd353618b23648e593f9a9",
+    "mods/gpumemleakfix-fabric-1.21-1.8.jar": "c7b1abe0577f4e02dde9924e6f411d09b2ea5dd8c8f4ef7ba2659d6dc8d55f4b",
+    "mods/horseman-fabric-1.21.1-1.5.13.jar": "ca00c8262308ccff8ea931bd04ce9bb683894769db41d328daf75129d210a848",
+    "mods/iCommon-Fabric-bundle.jar": "c3b5c634b303b583e6524b4d82fe120cf20c1174a7496af7684a2ef0297eb870",
+    "mods/ImmediatelyFast-Fabric-1.6.15+1.21.1.jar": "9c391f0864caf9083cac98e44b1ab6235e45fbf340efda5ba75e0a21929d05d5",
+    "mods/immersive-winds-1.21.1-0.9.jar": "68da9fd28c7f55b6bf2d8554c5f1695fafef24f058de0542f701257bfc8db2cb",
+    "mods/immersive_aircraft-fabric-1.7.0+1.21.1.jar": "563801755e9d1aa8792e2b62bf53cb5a14c8a85f2891075ddc8a40485ab6c6f6",
+    "mods/immersive_horse_riding-1.21.1-Fabric-2.0.0.jar": "ffd60192e5818408d4c3b9f1a2b231d71cc887daea0ea24b846fd728eaf9b6a8",
+    "mods/iris-fabric-1.8.8+mc1.21.1.jar": "b5ad39a6cb113ca0a1765f06689f9f4b29ccd0c81247de90b06c42f5da1092f5",
+    "mods/Item_Obliterator-Fabric_Quilt-MC_1.21-3.1.1.jar": "5cdeb21113f8055c9d3f47daf579b0672145f628a04c1c719aa77c703dbbf16c",
+    "mods/jei-1.21.1-fabric-19.64.0.455.jar": "1bc14659d8cf0cd9de801f56947950521134b25eb37725ce3ea94797b9165745",
+    "mods/keybind_fix-1.0.1.jar": "6c3059c3f77ee1d9f4cfbe6bae2fe413e849a882d0747c8ad08bb59e40d4b62c",
+    "mods/konkrete_fabric_1.9.9_MC_1.21.jar": "06e912f99d59bf81c0676f1db936150ad4443d5674f59b3c55604540ba620841",
+    "mods/letmedespawn-fabric-1.21.1-1.26.10.2.jar": "74a114213502e57555adc72a55b0fa9166ca448df57ed9e373dcc80d3c25eb8f",
+    "mods/lithium-fabric-0.15.4+mc1.21.1.jar": "92329d98c57f5a22091a0adb509fdb1d60113a5602c708b799b13134bad13baa",
+    "mods/lithostitched-1.8.1-fabric-21.1.jar": "04980f7e667032fc89c61c4c264565c1564b2808c57da52dcfe427fea1fee1d1",
+    "mods/LosKayDA0T - Final Season Gear 1.2.1 Release.jar": "e282cc7bf2f1b96f0171c3837cb56e31be6699b46ae9501c040ee7462bc190a1",
+    "mods/mcef-fabric-2.1.6-1.21.1.jar": "b5270016b85a6c3c26cc88c11ca3c128b937e6b98d3c86605d48502693f81553",
+    "mods/mcw-furniture-3.4.1-mc1.21.1fabric.jar": "73d3f1f7b8a78c274919280161eefa36a3486f6b343e27f2bdd055ecf9a1da95",
+    "mods/mcw-mcwwindows-2.4.2-mc1.21.1fabric.jar": "c887517505ec2568839475d625967ea2277f190f238043d1caa3f7562ff8f77d",
+    "mods/mcw-roofs-2.3.2-mc1.21.1fabric.jar": "f0b181de6c35f36897ea18c92181409f0ccab604ceb4c34c9a2e126ec638bbc3",
+    "mods/melody_fabric_1.0.10_MC_1.21.jar": "223ab859b9cc246d8d6e5cec5e734f97be3aac545de6cda7743750262428ed83",
+    "mods/mezz_config-1.21.1-fabric-0.6.9.jar": "137faf45ce0881882e4d222dbf8cffc74b9cd85433cfb53f98bf5267884d08ab",
+    "mods/modernfix-fabric-5.25.1+mc1.21.1.jar": "3ce5a9ce75066961b7fa5382692bb1387cc3536cc984b064ab7d70b97f3c674c",
+    "mods/modmenu-11.0.5.jar": "afa55fe4e7c48560126dbe654fa9647f141bc6ffd3ce35525b65dd65d88251b5",
+    "mods/Necronomicon-Fabric-1.6.0+1.21.jar": "ca1c56e86cb1d7e0aa47e6841edcbef665aaec895e366c1fe0a980c4363f29e2",
+    "mods/niftycarts-21.1.1.jar": "ed999ceca5abd949d7bcc00baa83e270440f4e56c778e404c0686900d20d9ae2",
+    "mods/noisium-fabric-2.7.0+mc1.21-1.21.1.jar": "d7e471aae3fc221f3fc31104b996b2b6f2dd592a5a9c79da4a8ef310efbea315",
+    "mods/Not Enough Recipe Book-FABRIC-0.4.3+1.21.jar": "0f2f8d670bc6aa2f76b030acfd8ad6e4c38595be231d08006c51fe4328302bf3",
+    "mods/notenoughanimations-fabric-1.12.6-mc1.21.1.jar": "c122d94d63493de89a90778f761ccebcc53ba009279c93492b99869381f37f45",
+    "mods/OctoLib-FABRIC-0.6.2+1.21.jar": "73dc2af050c46a1501421593296570ec6dcb3824927fbff9c44ac032e5548da5",
+    "mods/OpenLoader-fabric-1.21.1-21.1.5.jar": "95b48a53035f1b7193916b8202637a582d6680ebdcdb0ce6a0c6c0427a443483",
+    "mods/placeholder-api-2.4.2+1.21.jar": "c0187ee299527ac7a3e0b1e83601dcdc0de631e286fe41e6be1a75958ea8e443",
+    "mods/player-animation-lib-fabric-2.0.4+1.21.1.jar": "86ef8a23a5bc8f86d67ed37f3a93380d3946bad64123b22862ed057e7b624efd",
+    "mods/PlayerAnimationLibFabric-1.1.5+mc.1.21.1.jar": "4178909defe69f7b1a34ab8efee2f0f98160e1c7f5a14458e8baabb2297f679a",
+    "mods/PresenceFootsteps-1.10.2+1.21.jar": "d648875b2ce624cade82f4d16adf7ae27b301228d43be0134413d44b3551433e",
+    "mods/prickle-fabric-1.21.1-21.1.11.jar": "d6d639078aecb72770f287d8253e4634114e2536ac9a2ad6ec5f442eb27dd07f",
+    "mods/reeses-sodium-options-fabric-1.8.3+mc1.21.4.jar": "b42fc0424050f076c8e1f77b7549e48ec6e07605fbf868ed5d0ef47848665dd2",
+    "mods/resourcefullib-fabric-1.21-3.0.12.jar": "93064c5aff85bf5e6385470f311fd1c7de172f58b02fefb1d2920db76f8cd8b5",
+    "mods/ScalableLux-0.1.0.1+fabric.d0d58ab-all.jar": "f32ed8d825c7af90b14ab9f7bbe1293818bcf411fea104ae20d18ecde30f8387",
+    "mods/seriousplayeranimations-1.2.0.jar": "8541d8bc4fbcb710a3928cf2469ceaf467c8b13e425f15eab7589b9110a28cdb",
+    "mods/siege-machines-1.21.1-fabric-1.39.jar": "4e1d04b8737e49358f5996f17e4c4ce16ddaeca10d7da486b66d5b0507861cbb",
+    "mods/sit-1.21-28.jar": "984ec2f1eb986a2178d3891897897222108f1c1253e32358b90f30cfcdb64289",
+    "mods/skinlayers3d-fabric-1.11.4-mc1.21.1.jar": "af04f7c2d59aa72ff8c872a348b0e0eef65d25e1ae73bfe2abac0732a6709814",
+    "mods/smart_particles+mc1.21.1-1.01.10.jar": "42380961a313ac77ce62d223b2f59b3375f5c5a3507cd033d712ea6127cef78e",
+    "mods/snassets_particles-1.0.3.jar": "ec4c2228d1edacad778745ac7005d4b5ac2a784f1e1a3d70cae072abf3ebdc4a",
+    "mods/sodium-fabric-0.6.13+mc1.21.1.jar": "e04599514d88e41765f710eeba59e3814909833396bc11b977f48fc2e7e50353",
+    "mods/sodiumextras-fabric-1.0.8-1.21.1.jar": "f919c512fa7c774e14e7a96502fb7a7e19bb7843df7275390e6fa8e7e090004c",
+    "mods/sodiumoptionsapi-fabric-1.0.10-1.21.1.jar": "59b8de5a85b964b9fb9ff83042240ca8842ea77e430d89c69af57dfdff1acc29",
+    "mods/sophisticatedbackpacks-1.21.1-3.23.4.3.106.jar": "bbcd0d01b204efa0d51d7426d9ff08db2d2206017782c21306c500a9c294967e",
+    "mods/sophisticatedcore-1.21.1-1.2.9.21.168.jar": "48e99847012a2319fa76b9ae9f277b675d6e60008a5e587c6b966126c092e914",
+    "mods/sound-physics-remastered-fabric-1.21.1-1.5.2.jar": "ace731943db3a02c375e401d18bab3756be4582015066643db9b4a9dead87fbb",
+    "mods/spark-1.10.109-fabric.jar": "fafc121ac53dab1c32e74b7a1cae47d54435ba4cbeeda1180dc96675a7757047",
+    "mods/stronger-shifters-1.3.0.jar": "ef8c6749022a6e6d97a79143da0837ebccf20e4e88349f7f2110fcb5255a1e81",
+    "mods/tectonic-3.0.28-fabric-21.1.jar": "d4e16f9fd714cd0dfd3d785fee5a7628a6f1addeaca2f0ce931ac504346cb3be",
+    "mods/trenzalore-fabric-6.1.1+mc1.21.1.jar": "29746207c63e811d17c797930381faafe0e846d71ebb86a6433d57059724dd70",
+    "mods/twoplayersonehorse-fabric-1.21.1-1.0.2.jar": "2cb258f3c3beb66a1e2e61a3916d53064f44144b77134cf9678be15693c172fd",
+    "mods/txnilib-fabric-1.0.24-1.21.1.jar": "814ea0db4bddf0bbc7beb316490e5f709e067203bbe1b8780ef3b2dde267ccc3",
+    "mods/visualhealth-fabric-1.21.1-2.0.4.jar": "b4b4c2e556ab2c8eb2f6ad1d674559dcbad665ccaaa95b2e720cd8921972b9ce",
+    "mods/voicechat-fabric-1.21.1-2.6.22.jar": "972a01592f670aa57f2dc2e3587a656b798106037468c61e4bfb49eba7d6ae36",
+    "mods/watermedia-3.0.0.23.jar": "23f3d112ea973f6071e0ac9b1877282c6302ae9efd72428584209fc02219d12a",
+    "mods/watermedia_binaries-3.0.0.6.jar": "3b161eb534c13de1c4f10bb41d491c6422de1a7a19e11b06da56aa328ddd5809",
+    "mods/xaerominimap-fabric-1.21.1-26.6.0.jar": "86bdc4282a73ed55e6a4903a7ba65940a6aed20404f7ab7c96f8d94078accd1b",
+    "mods/yet_another_config_lib_v3-3.8.2+1.21.1-fabric.jar": "6ab420b7d1326fc9851b96a8967504bd644da421ed6438ceb9a9d9c993a408b1",
+    "mods/yosbr-0.1.2.jar": "db4c744fd71f5617639cb0fdff72378b08d2852004f4045c62090de1bf53afcb",
+    "mods/youre-in-grave-danger-fabric-2.4.18.jar": "4ae15574b52062f1cb3524138cde0a8e2fe537061186a9e31c0847b423aafbf9"
+  },
+  "mods": [
+    {
+      "id": "aaa_particles",
+      "name": "AAA Particles",
+      "version": "2.3.1"
+    },
+    {
+      "id": "aaa_particles_world",
+      "name": "AAA Particles: World",
+      "version": "2.0.0"
+    },
+    {
+      "id": "almanac",
+      "name": "Almanac",
+      "version": "1.26.10.3"
+    },
+    {
+      "id": "ambientsounds",
+      "name": "AmbientSounds",
+      "version": "6.3.11"
+    },
+    {
+      "id": "aot_camera_roll",
+      "name": "Camera Mod",
+      "version": "1.4.4"
+    },
+    {
+      "id": "aot_world_type_lock",
+      "name": "Attack on Titan World Type Lock",
+      "version": "1.0.2"
+    },
+    {
+      "id": "apollib",
+      "name": "Apollib",
+      "version": "1.2.0"
+    },
+    {
+      "id": "appleskin",
+      "name": "AppleSkin",
+      "version": "3.0.6+mc1.21"
+    },
+    {
+      "id": "architectury",
+      "name": "Architectury",
+      "version": "13.0.11"
+    },
+    {
+      "id": "atakanshift",
+      "name": "Stronger Shifters",
+      "version": "1.0.0"
+    },
+    {
+      "id": "badoptimizations",
+      "name": "BadOptimizations",
+      "version": "2.4.1"
+    },
+    {
+      "id": "baguettelib",
+      "name": "BaguetteLib",
+      "version": "2.0.5"
+    },
+    {
+      "id": "bloodnparticles",
+      "name": "Blood N' Particles Mod",
+      "version": "1.4.0"
+    },
+    {
+      "id": "blue_endless_jankson",
+      "name": "jankson",
+      "version": "1.2.3"
+    },
+    {
+      "id": "burnt",
+      "name": "Burnt",
+      "version": "0.1.6.3"
+    },
+    {
+      "id": "c2me",
+      "name": "Concurrent Chunk Management Engine",
+      "version": "0.4.0-alpha.0.30+1.21.1"
+    },
+    {
+      "id": "c2me-base",
+      "name": "Concurrent Chunk Management Engine (Base)",
+      "version": "0.4.0-alpha.0.30+1.21.1"
+    },
+    {
+      "id": "c2me-client-uncapvd",
+      "name": "Concurrent Chunk Management Engine (Client/Uncap View Distance)",
+      "version": "0.4.0-alpha.0.30+1.21.1"
+    },
+    {
+      "id": "c2me-fixes-chunkio-threading-issues",
+      "name": "Concurrent Chunk Management Engine (Fixes/Chunk IO/Threading Issues)",
+      "version": "0.4.0-alpha.0.30+1.21.1"
+    },
+    {
+      "id": "c2me-fixes-general-threading-issues",
+      "name": "Concurrent Chunk Management Engine (Fixes/General/Threading Issues)",
+      "version": "0.4.0-alpha.0.30+1.21.1"
+    },
+    {
+      "id": "c2me-fixes-worldgen-threading-issues",
+      "name": "Concurrent Chunk Management Engine (Fixes/WorldGen/Threading Issues)",
+      "version": "0.4.0-alpha.0.30+1.21.1"
+    },
+    {
+      "id": "c2me-fixes-worldgen-vanilla-bugs",
+      "name": "Concurrent Chunk Management Engine (Fixes/WorldGen/Vanilla Bugs)",
+      "version": "0.4.0-alpha.0.30+1.21.1"
+    },
+    {
+      "id": "c2me-notickvd",
+      "name": "Concurrent Chunk Management Engine (No Tick View Distance)",
+      "version": "0.4.0-alpha.0.30+1.21.1"
+    },
+    {
+      "id": "c2me-opts-allocs",
+      "name": "Concurrent Chunk Management Engine (Optimizations/Memory Allocations)",
+      "version": "0.4.0-alpha.0.30+1.21.1"
+    },
+    {
+      "id": "c2me-opts-chunkio",
+      "name": "Concurrent Chunk Management Engine (Optimizations/Chunk IO)",
+      "version": "0.4.0-alpha.0.30+1.21.1"
+    },
+    {
+      "id": "c2me-opts-dfc",
+      "name": "Concurrent Chunk Management Engine (Optimizations/Density Function Compiler)",
+      "version": "0.4.0-alpha.0.30+1.21.1"
+    },
+    {
+      "id": "c2me-opts-math",
+      "name": "Concurrent Chunk Management Engine (Optimizations/Math)",
+      "version": "0.4.0-alpha.0.30+1.21.1"
+    },
+    {
+      "id": "c2me-opts-scheduling",
+      "name": "Concurrent Chunk Management Engine (Optimizations/Scheduling)",
+      "version": "0.4.0-alpha.0.30+1.21.1"
+    },
+    {
+      "id": "c2me-opts-worldgen-general",
+      "name": "Concurrent Chunk Management Engine (Optimizations/General WorldGen)",
+      "version": "0.4.0-alpha.0.30+1.21.1"
+    },
+    {
+      "id": "c2me-opts-worldgen-vanilla",
+      "name": "Concurrent Chunk Management Engine (Optimizations/Vanilla WorldGen)",
+      "version": "0.4.0-alpha.0.30+1.21.1"
+    },
+    {
+      "id": "c2me-rewrites-chunk-system",
+      "name": "Concurrent Chunk Management Engine (Rewrites/Chunk System)",
+      "version": "0.4.0-alpha.0.30+1.21.1"
+    },
+    {
+      "id": "c2me-rewrites-chunkio",
+      "name": "Concurrent Chunk Management Engine (Rewrites/Chunk IO)",
+      "version": "0.4.0-alpha.0.30+1.21.1"
+    },
+    {
+      "id": "c2me-server-utils",
+      "name": "Concurrent Chunk Management Engine (Server Utils)",
+      "version": "0.4.0-alpha.0.30+1.21.1"
+    },
+    {
+      "id": "c2me-threading-lighting",
+      "name": "Concurrent Chunk Management Engine (Threading/Lighting)",
+      "version": "0.4.0-alpha.0.30+1.21.1"
+    },
+    {
+      "id": "cameraoverhaul",
+      "name": "CameraOverhaul",
+      "version": "2.1.2-fabric+mc.1.21-1.21.2"
+    },
+    {
+      "id": "chunk-debug",
+      "name": "ChunkDebug",
+      "version": "2.1.2+1.21.1"
+    },
+    {
+      "id": "chunkactivitytracker",
+      "name": "Chunk Activity Tracker",
+      "version": "1.0.1"
+    },
+    {
+      "id": "civilian_aviation",
+      "name": "Civilian Aviation",
+      "version": "1.0.3"
+    },
+    {
+      "id": "cloth-basic-math",
+      "name": "cloth-basic-math",
+      "version": "0.6.1"
+    },
+    {
+      "id": "cloth-config",
+      "name": "Cloth Config v15",
+      "version": "15.0.140"
+    },
+    {
+      "id": "com_electronwill_night-config_core",
+      "name": "core",
+      "version": "3.8.0"
+    },
+    {
+      "id": "com_electronwill_night-config_toml",
+      "name": "toml",
+      "version": "3.8.0"
+    },
+    {
+      "id": "com_github_ben-manes_caffeine_caffeine",
+      "name": "caffeine",
+      "version": "3.2.1"
+    },
+    {
+      "id": "com_github_keksuccino_japng",
+      "name": "japng",
+      "version": "0.5.3"
+    },
+    {
+      "id": "com_github_rtyley_animated-gif-lib-for-java",
+      "name": "animated-gif-lib-for-java",
+      "version": "animated-gif-lib-1.7"
+    },
+    {
+      "id": "com_ibm_async_asyncutil",
+      "name": "asyncutil",
+      "version": "0.1.0"
+    },
+    {
+      "id": "com_teamresourceful_bytecodecs",
+      "name": "bytecodecs",
+      "version": "1.1.2"
+    },
+    {
+      "id": "com_teamresourceful_yabn",
+      "name": "yabn",
+      "version": "1.0.3"
+    },
+    {
+      "id": "com_twelvemonkeys_common_common-image",
+      "name": "common-image",
+      "version": "3.12.0"
+    },
+    {
+      "id": "com_twelvemonkeys_common_common-io",
+      "name": "common-io",
+      "version": "3.12.0"
+    },
+    {
+      "id": "com_twelvemonkeys_common_common-lang",
+      "name": "common-lang",
+      "version": "3.12.0"
+    },
+    {
+      "id": "com_twelvemonkeys_imageio_imageio-core",
+      "name": "imageio-core",
+      "version": "3.12.0"
+    },
+    {
+      "id": "com_twelvemonkeys_imageio_imageio-metadata",
+      "name": "imageio-metadata",
+      "version": "3.12.0"
+    },
+    {
+      "id": "com_twelvemonkeys_imageio_imageio-webp",
+      "name": "imageio-webp",
+      "version": "3.12.0"
+    },
+    {
+      "id": "com_zigythebird_mochafloats",
+      "name": "mochafloats",
+      "version": "4.1.0"
+    },
+    {
+      "id": "cosmeticarmorreworkedforked",
+      "name": "CosmeticArmorReworkedForked",
+      "version": "1.21.1-0.0.4"
+    },
+    {
+      "id": "createtnt",
+      "name": "Create TNT",
+      "version": "1.0.0"
+    },
+    {
+      "id": "creativecore",
+      "name": "CreativeCore",
+      "version": "2.13.39"
+    },
+    {
+      "id": "cupboard",
+      "name": "cupboard",
+      "version": "1.21.1-4.2"
+    },
+    {
+      "id": "dannys-aot",
+      "name": "Danny's AoT",
+      "version": "2.4.1"
+    },
+    {
+      "id": "daotoc",
+      "name": "daot-overlyconfigured",
+      "version": "1.0.1"
+    },
+    {
+      "id": "de_marhali_json5-java",
+      "name": "json5-java",
+      "version": "3.0.0"
+    },
+    {
+      "id": "debugify",
+      "name": "Debugify",
+      "version": "1.21.1+1.0"
+    },
+    {
+      "id": "does_it_tick",
+      "name": "Does It Tick?",
+      "version": "1.1.4"
+    },
+    {
+      "id": "dungeonconfig",
+      "name": "Dungeon Config",
+      "version": "1.26.10.3"
+    },
+    {
+      "id": "eldian_npcs",
+      "name": "Danny's AOT: Eldian NPCs",
+      "version": "0.2.2"
+    },
+    {
+      "id": "enhancedvisuals",
+      "name": "EnhancedVisuals",
+      "version": "1.8.34"
+    },
+    {
+      "id": "extralib",
+      "name": "ExtraLib",
+      "version": "3.1.1"
+    },
+    {
+      "id": "extraquests",
+      "name": "ExtraQuests [FTB Quests]",
+      "version": "1.7.0"
+    },
+    {
+      "id": "fabric-api",
+      "name": "Fabric API",
+      "version": "0.116.15+1.21.1"
+    },
+    {
+      "id": "fabric-api-base",
+      "name": "Fabric API Base",
+      "version": "0.4.42+6573ed8c19"
+    },
+    {
+      "id": "fabric-api-lookup-api-v1",
+      "name": "Fabric API Lookup API (v1)",
+      "version": "1.6.72+7b3d111d19"
+    },
+    {
+      "id": "fabric-biome-api-v1",
+      "name": "Fabric Biome API (v1)",
+      "version": "13.0.31+d527f9fd19"
+    },
+    {
+      "id": "fabric-block-api-v1",
+      "name": "Fabric Block API (v1)",
+      "version": "1.1.0+0bc3503219"
+    },
+    {
+      "id": "fabric-block-view-api-v2",
+      "name": "Fabric BlockView API (v2)",
+      "version": "1.0.11+ebb2264e19"
+    },
+    {
+      "id": "fabric-blockrenderlayer-v1",
+      "name": "Fabric BlockRenderLayer Registration (v1)",
+      "version": "1.1.52+0af3f5a719"
+    },
+    {
+      "id": "fabric-client-tags-api-v1",
+      "name": "Fabric Client Tags",
+      "version": "1.2.0+1eb36c0719"
+    },
+    {
+      "id": "fabric-command-api-v1",
+      "name": "Fabric Command API (v1)",
+      "version": "1.2.49+f71b366f19"
+    },
+    {
+      "id": "fabric-command-api-v2",
+      "name": "Fabric Command API (v2)",
+      "version": "2.2.28+6ced4dd919"
+    },
+    {
+      "id": "fabric-commands-v0",
+      "name": "Fabric Commands (v0)",
+      "version": "0.2.66+df3654b319"
+    },
+    {
+      "id": "fabric-content-registries-v0",
+      "name": "Fabric Content Registries (v0)",
+      "version": "8.0.19+b559734419"
+    },
+    {
+      "id": "fabric-convention-tags-v1",
+      "name": "Fabric Convention Tags",
+      "version": "2.1.7+7f945d5b19"
+    },
+    {
+      "id": "fabric-convention-tags-v2",
+      "name": "Fabric Convention Tags (v2)",
+      "version": "2.12.0+c3656daa19"
+    },
+    {
+      "id": "fabric-crash-report-info-v1",
+      "name": "Fabric Crash Report Info (v1)",
+      "version": "0.2.29+0af3f5a719"
+    },
+    {
+      "id": "fabric-data-attachment-api-v1",
+      "name": "Fabric Data Attachment API (v1)",
+      "version": "1.4.7+5b36e0f719"
+    },
+    {
+      "id": "fabric-data-generation-api-v1",
+      "name": "Fabric Data Generation API (v1)",
+      "version": "20.3.0+1eb36c0719"
+    },
+    {
+      "id": "fabric-dimensions-v1",
+      "name": "Fabric Dimensions API (v1)",
+      "version": "4.0.1+65213ef819"
+    },
+    {
+      "id": "fabric-entity-events-v1",
+      "name": "Fabric Entity Events (v1)",
+      "version": "1.8.0+2b27e0a419"
+    },
+    {
+      "id": "fabric-events-interaction-v0",
+      "name": "Fabric Events Interaction (v0)",
+      "version": "0.7.14+ba9dae0619"
+    },
+    {
+      "id": "fabric-game-rule-api-v1",
+      "name": "Fabric Game Rule API (v1)",
+      "version": "1.0.53+6ced4dd919"
+    },
+    {
+      "id": "fabric-item-api-v1",
+      "name": "Fabric Item API (v1)",
+      "version": "11.3.0+467044f319"
+    },
+    {
+      "id": "fabric-item-group-api-v1",
+      "name": "Fabric Item Group API (v1)",
+      "version": "4.1.7+def88e3a19"
+    },
+    {
+      "id": "fabric-key-binding-api-v1",
+      "name": "Fabric Key Binding API (v1)",
+      "version": "1.0.47+0af3f5a719"
+    },
+    {
+      "id": "fabric-keybindings-v0",
+      "name": "Fabric Key Bindings (v0)",
+      "version": "0.2.45+df3654b319"
+    },
+    {
+      "id": "fabric-language-kotlin",
+      "name": "Fabric Language Kotlin",
+      "version": "1.14.2+kotlin.2.4.21"
+    },
+    {
+      "id": "fabric-lifecycle-events-v1",
+      "name": "Fabric Lifecycle Events (v1)",
+      "version": "2.6.0+0865547519"
+    },
+    {
+      "id": "fabric-loot-api-v2",
+      "name": "Fabric Loot API (v2)",
+      "version": "3.0.15+3f89f5a519"
+    },
+    {
+      "id": "fabric-loot-api-v3",
+      "name": "Fabric Loot API (v3)",
+      "version": "1.0.3+3f89f5a519"
+    },
+    {
+      "id": "fabric-message-api-v1",
+      "name": "Fabric Message API (v1)",
+      "version": "6.0.14+8aaf3aca19"
+    },
+    {
+      "id": "fabric-model-loading-api-v1",
+      "name": "Fabric Model Loading API (v1)",
+      "version": "2.1.0+b4d813fc19"
+    },
+    {
+      "id": "fabric-networking-api-v1",
+      "name": "Fabric Networking API (v1)",
+      "version": "4.3.1+d30f6a7919"
+    },
+    {
+      "id": "fabric-object-builder-api-v1",
+      "name": "Fabric Object Builder API (v1)",
+      "version": "15.2.1+40875a9319"
+    },
+    {
+      "id": "fabric-particles-v1",
+      "name": "Fabric Particles (v1)",
+      "version": "4.0.2+6573ed8c19"
+    },
+    {
+      "id": "fabric-permissions-api-v0",
+      "name": "fabric-permissions-api",
+      "version": "0.3.1"
+    },
+    {
+      "id": "fabric-recipe-api-v1",
+      "name": "Fabric Recipe API (v1)",
+      "version": "5.0.16+2475392c19"
+    },
+    {
+      "id": "fabric-registry-sync-v0",
+      "name": "Fabric Registry Sync (v0)",
+      "version": "5.3.2+e3eddc2119"
+    },
+    {
+      "id": "fabric-renderer-api-v1",
+      "name": "Fabric Renderer API (v1)",
+      "version": "3.4.1+b4d813fc19"
+    },
+    {
+      "id": "fabric-renderer-indigo",
+      "name": "Fabric Renderer - Indigo",
+      "version": "1.7.1+c705a49c19"
+    },
+    {
+      "id": "fabric-renderer-registries-v1",
+      "name": "Fabric Renderer Registries (v1)",
+      "version": "3.2.69+df3654b319"
+    },
+    {
+      "id": "fabric-rendering-data-attachment-v1",
+      "name": "Fabric Rendering Data Attachment (v1)",
+      "version": "0.3.49+73761d2e19"
+    },
+    {
+      "id": "fabric-rendering-fluids-v1",
+      "name": "Fabric Rendering Fluids (v1)",
+      "version": "3.1.6+1daea21519"
+    },
+    {
+      "id": "fabric-rendering-v0",
+      "name": "Fabric Rendering (v0)",
+      "version": "1.1.72+df3654b319"
+    },
+    {
+      "id": "fabric-rendering-v1",
+      "name": "Fabric Rendering (v1)",
+      "version": "5.1.0+ab4c25a019"
+    },
+    {
+      "id": "fabric-resource-conditions-api-v1",
+      "name": "Fabric Resource Conditions API (v1)",
+      "version": "4.3.0+8dc279b119"
+    },
+    {
+      "id": "fabric-resource-loader-v0",
+      "name": "Fabric Resource Loader (v0)",
+      "version": "1.3.1+5b5275af19"
+    },
+    {
+      "id": "fabric-screen-api-v1",
+      "name": "Fabric Screen API (v1)",
+      "version": "2.0.26+639b4c0719"
+    },
+    {
+      "id": "fabric-screen-handler-api-v1",
+      "name": "Fabric Screen Handler API (v1)",
+      "version": "1.3.91+b559734419"
+    },
+    {
+      "id": "fabric-sound-api-v1",
+      "name": "Fabric Sound API (v1)",
+      "version": "1.0.23+6573ed8c19"
+    },
+    {
+      "id": "fabric-tag-api-v1",
+      "name": "Fabric Tag API (v1)",
+      "version": "1.3.0+1eb36c0719"
+    },
+    {
+      "id": "fabric-transfer-api-v1",
+      "name": "Fabric Transfer API (v1)",
+      "version": "5.4.4+7b3d111d19"
+    },
+    {
+      "id": "fabric-transitive-access-wideners-v1",
+      "name": "Fabric Transitive Access Wideners (v1)",
+      "version": "6.2.0+45b9699719"
+    },
+    {
+      "id": "fallingleaves",
+      "name": "Falling Leaves",
+      "version": "1.17.1"
+    },
+    {
+      "id": "fancymenu",
+      "name": "FancyMenu",
+      "version": "3.9.14"
+    },
+    {
+      "id": "farmersdelight",
+      "name": "Farmer's Delight",
+      "version": "1.21.1-3.3.6+refabricated"
+    },
+    {
+      "id": "ferritecore",
+      "name": "FerriteCore",
+      "version": "7.0.3"
+    },
+    {
+      "id": "forgeconfigapiport",
+      "name": "Forge Config API Port",
+      "version": "21.1.6"
+    },
+    {
+      "id": "ftbessentials",
+      "name": "FTB Essentials",
+      "version": "2101.1.10"
+    },
+    {
+      "id": "ftblibrary",
+      "name": "FTB Library",
+      "version": "2101.1.36"
+    },
+    {
+      "id": "ftbquests",
+      "name": "FTB Quests",
+      "version": "2101.1.36"
+    },
+    {
+      "id": "ftbteams",
+      "name": "FTB Teams",
+      "version": "2101.1.11"
+    },
+    {
+      "id": "geckolib",
+      "name": "GeckoLib 4",
+      "version": "4.9.2"
+    },
+    {
+      "id": "glitchcore",
+      "name": "GlitchCore",
+      "version": "2.1.0.2"
+    },
+    {
+      "id": "globalspawn",
+      "name": "GlobalSpawn",
+      "version": "2.0.0+1.21"
+    },
+    {
+      "id": "gpumemleakfix",
+      "name": "Gpu memory leak fix mod",
+      "version": "1.21-1.8"
+    },
+    {
+      "id": "horseman",
+      "name": "Horseman",
+      "version": "1.5.13"
+    },
+    {
+      "id": "icommon",
+      "name": "iCommonLib 1.21",
+      "version": "107+1.21.1"
+    },
+    {
+      "id": "icommon-api-configuration",
+      "name": "iCommon Config API",
+      "version": "1.0"
+    },
+    {
+      "id": "icommon-bundle",
+      "name": "iCommonLib-bundle",
+      "version": "107"
+    },
+    {
+      "id": "immediatelyfast",
+      "name": "ImmediatelyFast",
+      "version": "1.6.15+1.21.1"
+    },
+    {
+      "id": "immersive_aircraft",
+      "name": "Immersive Aircraft",
+      "version": "1.7.0+1.21.1"
+    },
+    {
+      "id": "immersive_horse_riding",
+      "name": "Immersive Horse Riding",
+      "version": "2.0.0"
+    },
+    {
+      "id": "immersivewind",
+      "name": "Immersive Winds",
+      "version": "0.9"
+    },
+    {
+      "id": "io_github_douira_glsl-transformer",
+      "name": "glsl-transformer",
+      "version": "2.0.1"
+    },
+    {
+      "id": "io_reactivex_rxjava3_rxjava",
+      "name": "rxjava",
+      "version": "3.1.12"
+    },
+    {
+      "id": "iris",
+      "name": "Iris",
+      "version": "1.8.8+mc1.21.1"
+    },
+    {
+      "id": "item_obliterator",
+      "name": "Item Obliterator",
+      "version": "3.1.1"
+    },
+    {
+      "id": "jankson",
+      "name": "Jankson",
+      "version": "8.0.0+j1.2.3"
+    },
+    {
+      "id": "jei",
+      "name": "Just Enough Items",
+      "version": "19.64.0.455"
+    },
+    {
+      "id": "keybind_fix",
+      "name": "Keybind Fix",
+      "version": "1.0.1"
+    },
+    {
+      "id": "kirin",
+      "name": "Kirin UI",
+      "version": "1.20.0+1.21"
+    },
+    {
+      "id": "konkrete",
+      "name": "Konkrete",
+      "version": "1.9.9"
+    },
+    {
+      "id": "letmedespawn",
+      "name": "LetMeDespawn",
+      "version": "1.26.10.2"
+    },
+    {
+      "id": "libgui",
+      "name": "LibGui",
+      "version": "11.1.0+1.21"
+    },
+    {
+      "id": "libninepatch",
+      "name": "LibNinePatch",
+      "version": "1.2.0"
+    },
+    {
+      "id": "lithium",
+      "name": "Lithium",
+      "version": "0.15.4+mc1.21.1"
+    },
+    {
+      "id": "lithostitched",
+      "name": "Lithostitched",
+      "version": "1.8.1"
+    },
+    {
+      "id": "los_gear",
+      "name": "洛斯卡伊的装备拓展",
+      "version": "1.0.0-r316"
+    },
+    {
+      "id": "mcef",
+      "name": "MCEF (Minecraft Chromium Embedded Framework)",
+      "version": "2.1.6-1.21.1"
+    },
+    {
+      "id": "mcwfurnitures",
+      "name": "Macaw's Furniture",
+      "version": "3.4.1"
+    },
+    {
+      "id": "mcwroofs",
+      "name": "Macaw's Roofs",
+      "version": "2.3.2"
+    },
+    {
+      "id": "mcwwindows",
+      "name": "Macaw's Windows",
+      "version": "2.4.2"
+    },
+    {
+      "id": "melody",
+      "name": "Melody",
+      "version": "1.0.10"
+    },
+    {
+      "id": "mezz_config",
+      "name": "MezzConfig",
+      "version": "0.6.9"
+    },
+    {
+      "id": "mixinextras",
+      "name": "MixinExtras",
+      "version": "0.5.5"
+    },
+    {
+      "id": "mixinsquared",
+      "name": "MixinSquared",
+      "version": "0.3.7-beta.2"
+    },
+    {
+      "id": "modernfix",
+      "name": "ModernFix",
+      "version": "5.25.1+mc1.21.1"
+    },
+    {
+      "id": "modmenu",
+      "name": "Mod Menu",
+      "version": "11.0.5"
+    },
+    {
+      "id": "necronomicon",
+      "name": "Necronomicon",
+      "version": "1.6.0"
+    },
+    {
+      "id": "nerb",
+      "name": "Not Enough Recipe Book",
+      "version": "0.4.3"
+    },
+    {
+      "id": "net_jodah_typetools",
+      "name": "typetools",
+      "version": "0.6.3"
+    },
+    {
+      "id": "net_lenni0451_reflect",
+      "name": "Reflect",
+      "version": "1.6.2"
+    },
+    {
+      "id": "net_neoforged_bus",
+      "name": "bus",
+      "version": "7.2.0"
+    },
+    {
+      "id": "net_objecthunter_exp4j",
+      "name": "exp4j",
+      "version": "0.4.8"
+    },
+    {
+      "id": "niftycarts",
+      "name": "NiftyCarts",
+      "version": "21.1.1"
+    },
+    {
+      "id": "noisium",
+      "name": "Noisium",
+      "version": "2.7.0+mc1.21-1.21.1"
+    },
+    {
+      "id": "notenoughanimations",
+      "name": "NotEnoughAnimations",
+      "version": "1.12.6"
+    },
+    {
+      "id": "octolib",
+      "name": "OctoLib",
+      "version": "0.6.2"
+    },
+    {
+      "id": "openloader",
+      "name": "OpenLoader",
+      "version": "21.1.5"
+    },
+    {
+      "id": "org_anarres_jcpp",
+      "name": "jcpp",
+      "version": "1.4.14"
+    },
+    {
+      "id": "org_antlr_antlr4-runtime",
+      "name": "antlr4-runtime",
+      "version": "4.13.1"
+    },
+    {
+      "id": "org_javassist_javassist",
+      "name": "javassist",
+      "version": "3.30.2-GA"
+    },
+    {
+      "id": "org_jctools_jctools-core",
+      "name": "jctools-core",
+      "version": "4.0.5"
+    },
+    {
+      "id": "org_jetbrains_kotlin_kotlin-reflect",
+      "name": "kotlin-reflect",
+      "version": "2.4.21"
+    },
+    {
+      "id": "org_jetbrains_kotlin_kotlin-stdlib",
+      "name": "kotlin-stdlib",
+      "version": "2.4.21"
+    },
+    {
+      "id": "org_jetbrains_kotlin_kotlin-stdlib-jdk7",
+      "name": "kotlin-stdlib-jdk7",
+      "version": "2.4.21"
+    },
+    {
+      "id": "org_jetbrains_kotlin_kotlin-stdlib-jdk8",
+      "name": "kotlin-stdlib-jdk8",
+      "version": "2.4.21"
+    },
+    {
+      "id": "org_jetbrains_kotlinx_atomicfu-jvm",
+      "name": "atomicfu-jvm",
+      "version": "0.33.0"
+    },
+    {
+      "id": "org_jetbrains_kotlinx_kotlinx-coroutines-core-jvm",
+      "name": "kotlinx-coroutines-core-jvm",
+      "version": "1.11.0"
+    },
+    {
+      "id": "org_jetbrains_kotlinx_kotlinx-coroutines-jdk8",
+      "name": "kotlinx-coroutines-jdk8",
+      "version": "1.11.0"
+    },
+    {
+      "id": "org_jetbrains_kotlinx_kotlinx-datetime-jvm",
+      "name": "kotlinx-datetime-jvm",
+      "version": "0.8.0"
+    },
+    {
+      "id": "org_jetbrains_kotlinx_kotlinx-io-bytestring-jvm",
+      "name": "kotlinx-io-bytestring-jvm",
+      "version": "0.9.1"
+    },
+    {
+      "id": "org_jetbrains_kotlinx_kotlinx-io-core-jvm",
+      "name": "kotlinx-io-core-jvm",
+      "version": "0.9.1"
+    },
+    {
+      "id": "org_jetbrains_kotlinx_kotlinx-serialization-cbor-jvm",
+      "name": "kotlinx-serialization-cbor-jvm",
+      "version": "1.11.0"
+    },
+    {
+      "id": "org_jetbrains_kotlinx_kotlinx-serialization-core-jvm",
+      "name": "kotlinx-serialization-core-jvm",
+      "version": "1.11.0"
+    },
+    {
+      "id": "org_jetbrains_kotlinx_kotlinx-serialization-json-jvm",
+      "name": "kotlinx-serialization-json-jvm",
+      "version": "1.11.0"
+    },
+    {
+      "id": "org_mariuszgromada_math_mathparser_org-mxparser",
+      "name": "MathParser.org-mXparser",
+      "version": "5.2.1"
+    },
+    {
+      "id": "org_quiltmc_parsers_gson",
+      "name": "gson",
+      "version": "0.2.1"
+    },
+    {
+      "id": "org_quiltmc_parsers_json",
+      "name": "json",
+      "version": "0.2.1"
+    },
+    {
+      "id": "org_reactivestreams_reactive-streams",
+      "name": "reactive-streams",
+      "version": "1.0.4"
+    },
+    {
+      "id": "org_yaml_snakeyaml",
+      "name": "snakeyaml",
+      "version": "2.2"
+    },
+    {
+      "id": "parcool",
+      "name": "ParCool!",
+      "version": "1.21.1-3.4.3.3"
+    },
+    {
+      "id": "placeholder-api",
+      "name": "Placeholder API",
+      "version": "2.4.2+1.21"
+    },
+    {
+      "id": "player_animation_library",
+      "name": "Player Animation Library",
+      "version": "1.1.5+mc.1.21.1"
+    },
+    {
+      "id": "playeranimator",
+      "name": "Player Animator",
+      "version": "2.0.4+1.21.1"
+    },
+    {
+      "id": "porting_lib_conditions",
+      "name": "Porting Lib Conditions",
+      "version": "3.1.0-beta.47+1.21.1"
+    },
+    {
+      "id": "porting_lib_core",
+      "name": "Porting Lib Core",
+      "version": "3.1.0-beta.47+1.21.1"
+    },
+    {
+      "id": "porting_lib_fluids",
+      "name": "Porting Lib Fluids",
+      "version": "3.1.0-beta.47+1.21.1"
+    },
+    {
+      "id": "porting_lib_item_abilities",
+      "name": "Porting Lib Item Abilities",
+      "version": "3.1.0-beta.47+1.21.1"
+    },
+    {
+      "id": "porting_lib_lazy_registration",
+      "name": "Porting Lib Lazy Register",
+      "version": "3.1.0-beta.47+1.21.1"
+    },
+    {
+      "id": "porting_lib_level_events",
+      "name": "Porting Lib Level Events",
+      "version": "3.1.0-beta.47+1.21.1"
+    },
+    {
+      "id": "porting_lib_loot",
+      "name": "Porting Lib Loot",
+      "version": "3.1.0-beta.47+1.21.1"
+    },
+    {
+      "id": "porting_lib_model_loader",
+      "name": "Porting Lib Model Loader",
+      "version": "3.1.0-beta.47+1.21.1"
+    },
+    {
+      "id": "porting_lib_render_types",
+      "name": "Porting Lib Render Types",
+      "version": "3.1.0-beta.47+1.21.1"
+    },
+    {
+      "id": "porting_lib_transfer",
+      "name": "Porting Lib Transfer",
+      "version": "3.1.0-beta.47+1.21.1"
+    },
+    {
+      "id": "presencefootsteps",
+      "name": "Presence Footsteps",
+      "version": "1.10.2+1.21"
+    },
+    {
+      "id": "prickle",
+      "name": "PrickleMC",
+      "version": "21.1.11"
+    },
+    {
+      "id": "reeses-sodium-options",
+      "name": "Reese's Sodium Options",
+      "version": "1.8.3+mc1.21.4"
+    },
+    {
+      "id": "resourcefullib",
+      "name": "Resourceful Lib",
+      "version": "3.0.12"
+    },
+    {
+      "id": "scalablelux",
+      "name": "ScalableLux",
+      "version": "0.1.0.1+fabric.d0d58ab"
+    },
+    {
+      "id": "seriousplayeranimations",
+      "name": "Serious Player Animations",
+      "version": "1.2.0"
+    },
+    {
+      "id": "siegemachines",
+      "name": "SiegeMachines",
+      "version": "1.39"
+    },
+    {
+      "id": "sit",
+      "name": "Sit",
+      "version": "1.21-28"
+    },
+    {
+      "id": "skinlayers3d",
+      "name": "3d-Skin-Layers",
+      "version": "1.11.4"
+    },
+    {
+      "id": "smart_particles",
+      "name": "Smart Particles",
+      "version": "1.1.10"
+    },
+    {
+      "id": "snassets_particles",
+      "name": "SnAssets Particles",
+      "version": "1.0.3"
+    },
+    {
+      "id": "sodium",
+      "name": "Sodium",
+      "version": "0.6.13+mc1.21.1"
+    },
+    {
+      "id": "sodiumextras",
+      "name": "Sodium Extras",
+      "version": "1.0.7"
+    },
+    {
+      "id": "sodiumoptionsapi",
+      "name": "Sodium Options API",
+      "version": "1.0.10"
+    },
+    {
+      "id": "sophisticatedbackpacks",
+      "name": "Sophisticated Backpacks",
+      "version": "1.21.1-3.23.4.3.106"
+    },
+    {
+      "id": "sophisticatedcore",
+      "name": "Sophisticated Core",
+      "version": "1.21.1-1.2.9.21.168"
+    },
+    {
+      "id": "sound_physics_remastered",
+      "name": "Sound Physics Remastered",
+      "version": "1.21.1-1.5.2"
+    },
+    {
+      "id": "spark",
+      "name": "spark",
+      "version": "1.10.109"
+    },
+    {
+      "id": "team_reborn_energy",
+      "name": "Energy",
+      "version": "4.1.0"
+    },
+    {
+      "id": "tectonic",
+      "name": "Tectonic",
+      "version": "3.0.28"
+    },
+    {
+      "id": "transition",
+      "name": "TRansition",
+      "version": "1.0.27"
+    },
+    {
+      "id": "trender",
+      "name": "TRender",
+      "version": "1.0.17"
+    },
+    {
+      "id": "trenzalore",
+      "name": "Trenzalore",
+      "version": "6.1.1"
+    },
+    {
+      "id": "twoplayersonehorse",
+      "name": "TwoPlayersOneHorse",
+      "version": "1.0.2"
+    },
+    {
+      "id": "txnilib",
+      "name": "TxniLib",
+      "version": "1.0.24"
+    },
+    {
+      "id": "visual_health",
+      "name": "Visual Health",
+      "version": "1.21.1-2.0.4"
+    },
+    {
+      "id": "voicechat",
+      "name": "Simple Voice Chat",
+      "version": "1.21.1-2.6.22"
+    },
+    {
+      "id": "voicechat_api",
+      "name": "Simple Voice Chat API",
+      "version": "2.6.20"
+    },
+    {
+      "id": "watermedia",
+      "name": "WaterMedia",
+      "version": "3.0.0.23"
+    },
+    {
+      "id": "watermedia_binaries",
+      "name": "WaterMedia: Binaries",
+      "version": "3.0.0.6"
+    },
+    {
+      "id": "xaerolib",
+      "name": "XaeroLib",
+      "version": "1.7.3"
+    },
+    {
+      "id": "xaerominimap",
+      "name": "Xaero's Minimap",
+      "version": "26.6.0"
+    },
+    {
+      "id": "yet_another_config_lib_v3",
+      "name": "YetAnotherConfigLib",
+      "version": "3.8.2+1.21.1-fabric"
+    },
+    {
+      "id": "yigd",
+      "name": "You're in Grave Danger",
+      "version": "2.4.18"
+    },
+    {
+      "id": "yosbr",
+      "name": "YOSBR",
+      "version": "0.1.2"
+    }
+  ]
+}

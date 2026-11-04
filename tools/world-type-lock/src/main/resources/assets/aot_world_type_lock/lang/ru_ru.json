@@ -1,0 +1,6 @@
+{
+  "generator.attack_on_titan.paradis": "Парадиз",
+  "aot_world_type_lock.unavailable": "Парадиз недоступен",
+  "aot_world_type_lock.error.title": "Не удалось создать мир",
+  "aot_world_type_lock.error.body": "Не найдены обязательные ресурсы мира Attack on Titan. Восстановите или обновите сборку и повторите попытку."
+}

@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "aot_world_type_lock",
+  "version": "1.0.2",
+  "name": "Attack on Titan World Type Lock",
+  "description": "Restricts new worlds to native Paradis, resolves GlobalSpawn fallback safely, and keeps MCEF native/browser caches in instance-owned storage.",
+  "authors": [
+    "LANMinecraft"
+  ],
+  "license": "MIT",
+  "environment": "*",
+  "mixins": [
+    {
+      "config": "aot_world_type_lock.mixins.json",
+      "environment": "client"
+    },
+    "aot_safe_respawn.mixins.json",
+    {
+      "config": "aot_mcef_cache.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=0.19.5",
+    "minecraft": "1.21.1",
+    "java": ">=21",
+    "dannys-aot": [
+      "2.4.1",
+      "2.5.2"
+    ],
+    "globalspawn": "2.0.0"
+  },
+  "entrypoints": {
+    "main": [
+      "dev.lanminecraft.aotlock.SafeRespawnPolicy"
+    ]
+  }
+}

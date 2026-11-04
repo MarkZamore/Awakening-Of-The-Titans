@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "packId": "attack-on-titan",
+  "upstreamLockSha256": "09947fe917f6128ba44a14bebd1f7f22cb555dba6db62a7d39427d8908745303",
+  "overlaySha256": "0da0aabb94c9d9b4a159a738d19d5b96a38876486e4bc3652e6a6a63d5dfa310",
+  "inventorySha256": "7bb81fe7df8563b921a1ff978d9b1ce261df803a3ede972f9a5f4b5d23d5db02",
+  "operations": [
+    {
+      "path": "config/fancymenu/customization/spawn_layout.txt",
+      "sha256": "3322ed42448ab81ce0b886416c3e54e6612fd5403d76ecfee86487c8a6626bb4",
+      "sizeBytes": 15722
+    },
+    {
+      "path": "config/fancymenu/customization/world_type_layout.txt",
+      "sha256": "8b41fb017020fcf7c73643d1c4d26dcdb569040969a7a0446242319c24d1022b",
+      "sizeBytes": 10406
+    },
+    {
+      "path": "config/fancymenu/customization/create_world_screen_layout.txt",
+      "sha256": "0fefe40daaa43237903fb4d08dd588dd25e8da3e7116050ebbbe37094717ac6b",
+      "sizeBytes": 32580
+    },
+    {
+      "path": "launcher/pack-owned.txt",
+      "sha256": "aca47a7399d037e4e3e347fd69672e7cd9d88d3f3363315d9c9c4fae2c6d6b1a",
+      "sizeBytes": 231
+    },
+    {
+      "path": "mods/aot-world-type-lock-1.0.2.jar",
+      "sha256": "af418ee72bf91f46af654d34cc3f4e7a3d0dc723c178aaceaf1daa2339117f02",
+      "sizeBytes": 36159
+    },
+    {
+      "path": "config/log4j2.xml",
+      "sha256": "c794d7578091045f7f46aa9dbc52c8859b287d192583031f8fc59dcd2f751015",
+      "sizeBytes": 1718
+    },
+    {
+      "path": "launcher/jvm-args.txt",
+      "sha256": "a1f3a734e672681e16e8db9a35ece57236720f99f95a85bac9eb2caac1e19d3c",
+      "sizeBytes": 44
+    },
+    {
+      "path": "mods/yosbr-0.1.2.jar",
+      "sha256": "db4c744fd71f5617639cb0fdff72378b08d2852004f4045c62090de1bf53afcb",
+      "sizeBytes": 17373
+    },
+    {
+      "path": "config/yosbr/options.txt",
+      "sha256": "ac54b2c582393436b6dec66bb327fc04dfdaee1d5b8acceb4c16aa4645ffe1fe",
+      "sizeBytes": 639
+    }
+  ]
+}

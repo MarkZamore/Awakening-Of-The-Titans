@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "retired": [
+    {
+      "path": "mods/aot-world-type-lock-1.0.0.jar",
+      "sizeBytes": 18199,
+      "sha256": "96ee031d350a5ede15613fcdf723180419ccc24e5dae5691ac9ee6e4ae04229b",
+      "version": "1.0.0",
+      "replacedBy": "1.0.1",
+      "reason": "Confirmed raw GlobalSpawn respawn position can fail native safety validation; targeted native-criterion correction added."
+    },
+    {
+      "path": "mods/aot-world-type-lock-1.0.1.jar",
+      "sizeBytes": 26013,
+      "sha256": "fca4e58f3f30ca249da026d78a90452ab28253103d89b1a0ff20f2011a925693",
+      "version": "1.0.1",
+      "replacedBy": "1.0.2",
+      "reason": "MCEF stores bootstrap and browser caches inside managed mods; exact client-only native factory relocation preserves those caches across canonical pack synchronization."
+    }
+  ],
+  "baseJarReplacements": []
+}
