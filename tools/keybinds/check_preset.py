@@ -44,11 +44,13 @@ def platform_and_pins():
     descriptor = read_json(PACK / "portable-pack.json")
     platform = {key: descriptor[key] for key in ("minecraftVersion", "loader")}
     lock = read_json(PACK / "tools/distribution-lock.json")
+    client = read_json(PACK / "tools/upstream-lock.json")["client"]
     pins = {
         row["path"]: row["sha256"]
         for row in lock["files"]
-        if row["path"] == descriptor["clientJar"] or row["path"].startswith("mods/")
+        if row["path"].startswith("mods/")
     }
+    pins[client["path"]] = client["sha256"]
     return platform, pins
 
 

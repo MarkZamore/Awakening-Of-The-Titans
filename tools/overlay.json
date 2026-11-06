@@ -127,6 +127,14 @@
       "authorOptionsProjection": "resource-packs-only",
       "upstreamOptionsSha256": "ba2a6ead2141e6b44fac3ade8be203020b9cda98bfcb900b0ee4600259278cc6",
       "reason": "Supply only the exact YOSBR resource-pack selection when the launcher first creates options during a confirmed preset application."
+    },
+    {
+      "operation": "add",
+      "path": "launcher/runtime-libraries.json",
+      "source": "tools/overlay/launcher/runtime-libraries.json",
+      "sizeBytes": 2251,
+      "sha256": "6353119309cc56e053e508d642de6b54ee1dc9bf97148d2c83bf83997b2d94fc",
+      "reason": "Deliver hash-pinned licensed runtime libraries directly to the common launcher cache."
     }
   ],
   "networkLogging": "fabric-1.21.1-caught-throwables",
@@ -188,5 +196,6 @@
       "sha256": "b5270016b85a6c3c26cc88c11ca3c128b937e6b98d3c86605d48502693f81553",
       "reason": "Client-only MCEF cache relocation is qualified only for this exact original author JAR; dedicated server omits this client-only target."
     }
-  ]
+  ],
+  "officialClientOnly": true
 }

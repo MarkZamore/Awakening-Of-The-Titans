@@ -198,8 +198,12 @@ def overlay_shipping(op):
         and op.get('source') == 'tools/overlay/' + YOSBR_OPTIONS
         and op.get('authorOptionsProjection') == 'resource-packs-only'
     )
-def portable_bytes(upstream):
-    return encoded({'schemaVersion':1,'minecraftVersion':upstream['pack']['minecraftVersion'],'loader':upstream['pack']['loader'],'clientJar':upstream['client']['path']})
+def portable_bytes(upstream, overlay=None):
+    descriptor = {'schemaVersion': 1, 'minecraftVersion': upstream['pack']['minecraftVersion'],
+                  'loader': upstream['pack']['loader']}
+    if not (overlay or {}).get('officialClientOnly'):
+        descriptor['clientJar'] = upstream['client']['path']
+    return encoded(descriptor)
 def pack_name(source):
     name=read_json(Path(source)/'library/content.json')['name']
     require(isinstance(name,str) and name.strip() and len(name)<=120 and not any(ord(c)<32 for c in name),'Invalid canonical pack display name')
@@ -217,6 +221,7 @@ def expected_inventory(upstream,overlay,source=None):
         require(overlay.get('networkLogging')=='fabric-1.21.1-caught-throwables','Mandatory pack-owned network exception logging policy is missing')
         require(overlay.get('initialResourceDefaults')=='yosbr-resource-packs-only','Mandatory native first-launch author resource defaults are missing')
         require(overlay.get('baseModPolicy')=='preserve-awakening-1.8.1-gameplay' and len(overlay.get('requiredBaseMods',[]))==8 and len(overlay.get('forbiddenModIds',[]))==2,'Mandatory original gameplay/single-grave policy is missing')
+        require(overlay.get('officialClientOnly') is True,'Minecraft client must remain outside the public pack payload')
     require(overlay.get('platform')=={'minecraftVersion':upstream['pack']['minecraftVersion'],'loaderType':upstream['pack']['loader']['type']},'Overlay platform differs from author')
     all_base={r['path']:r for r in [*upstream['files'],*upstream['overrides'],upstream['client']]};seen=set()
     for pin in overlay.get('requiredUpstream',[]):require(pin['path'] in all_base and all_base[pin['path']]['sha256']==pin['sha256'],'Changed required upstream mechanism: '+pin['path'])
@@ -229,12 +234,13 @@ def expected_inventory(upstream,overlay,source=None):
     require((PRESET_TARGET in seen)==(PRESET_FIRST_OPTIONS in seen),'Controls preset and its first-apply options template must ship together')
     require(PRESET_FIRST_OPTIONS not in seen or overlay.get('initialResourceDefaults')=='yosbr-resource-packs-only','Controls preset first-apply template requires the YOSBR projection')
     expected={r['path']:{k:r[k] for k in ('path','sizeBytes','sha256')} for r in [*upstream['files'],*upstream['overrides']] if shipping(r['path'])}
-    row=upstream['client'];expected[row['path']]={k:row[k] for k in ('path','sizeBytes','sha256')}
+    if not overlay.get('officialClientOnly'):
+        row=upstream['client'];expected[row['path']]={k:row[k] for k in ('path','sizeBytes','sha256')}
     for row in overlay['operations']:
         if row.get('template'):
             require(source is not None,'Display projection requires canonical source');raw=projected_payload(source,row);expected[row['path']]={'path':row['path'],'sizeBytes':len(raw),'sha256':sha(raw)}
         else:expected[row['path']]={k:row[k] for k in ('path','sizeBytes','sha256')}
-    raw=portable_bytes(upstream);expected['portable-pack.json']={'path':'portable-pack.json','sizeBytes':len(raw),'sha256':sha(raw)}
+    raw=portable_bytes(upstream,overlay);expected['portable-pack.json']={'path':'portable-pack.json','sizeBytes':len(raw),'sha256':sha(raw)}
     return sorted(expected.values(),key=lambda r:r['path'])
 def receipt(upstream,overlay,source=None):
     return {'schemaVersion':1,'packId':PACK_ID,'upstreamLockSha256':sha(encoded(upstream)),'overlaySha256':sha(encoded(overlay)),'inventorySha256':sha(encoded(expected_inventory(upstream,overlay,source))),'operations':[{'path':r['path'],'sha256':r['sha256'],'sizeBytes':r['sizeBytes']} for r in overlay['operations']]}
@@ -345,11 +351,11 @@ def derive(source,baseline,output,upstream,overlay):
     plan=overlay_plan(source,baseline,upstream,overlay)
     output.mkdir(parents=True,exist_ok=True)
     for row in [*upstream['files'],*upstream['overrides'],upstream['client']]:
-        if not shipping(row['path']) and row is not upstream['client']:continue
+        if not shipping(row['path']) and (row is not upstream['client'] or overlay.get('officialClientOnly')):continue
         target=safe(output,row['path']);target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(safe(baseline,row['path']),target)
     for rel,payload in plan.items():
         target=safe(output,rel);target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(payload)
-    (output/'portable-pack.json').write_bytes(portable_bytes(upstream))
+    (output/'portable-pack.json').write_bytes(portable_bytes(upstream,overlay))
     verify_required_settings(output,overlay)
     verify_resource_defaults(output,overlay,baseline)
     verify_base_mod_policy(output,upstream,overlay)

@@ -4,6 +4,5 @@
   "loader": {
     "type": "fabric",
     "version": "0.19.5"
-  },
-  "clientJar": "minecraft-1.21.1-client.jar"
+  }
 }

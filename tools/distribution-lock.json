@@ -22,8 +22,8 @@
     "schemaVersion": 1,
     "packId": "attack-on-titan",
     "upstreamLockSha256": "09947fe917f6128ba44a14bebd1f7f22cb555dba6db62a7d39427d8908745303",
-    "overlaySha256": "58e9a5d68199c420b79e4ff62f848b639fe6b5ae03da355cf9c2cba0eb76033a",
-    "inventorySha256": "8df76ae6db4d8744960677f8208013a713b983858be7541d9bcb351bb0033d78",
+    "overlaySha256": "3933003ef49d3967585b9c7d3fb35d3d2f5aecf756b825082ff59d9b442df5ba",
+    "inventorySha256": "830a8e9df29918658ecaaeb989ac98d017a74076b097d5413db9fc218c68358d",
     "operations": [
       {
         "path": "config/fancymenu/customization/spawn_layout.txt",
@@ -79,6 +79,11 @@
         "path": "configureddefaults/options.txt",
         "sha256": "ac54b2c582393436b6dec66bb327fc04dfdaee1d5b8acceb4c16aa4645ffe1fe",
         "sizeBytes": 639
+      },
+      {
+        "path": "launcher/runtime-libraries.json",
+        "sha256": "6353119309cc56e053e508d642de6b54ee1dc9bf97148d2c83bf83997b2d94fc",
+        "sizeBytes": 2251
       }
     ]
   },
@@ -2364,9 +2369,9 @@
       "sha256": "aca47a7399d037e4e3e347fd69672e7cd9d88d3f3363315d9c9c4fae2c6d6b1a"
     },
     {
-      "path": "minecraft-1.21.1-client.jar",
-      "sizeBytes": 26836906,
-      "sha256": "499f6897d1837516680f3114072d8106e11c9adcd933fe5cf051b551089b0c99"
+      "path": "launcher/runtime-libraries.json",
+      "sizeBytes": 2251,
+      "sha256": "6353119309cc56e053e508d642de6b54ee1dc9bf97148d2c83bf83997b2d94fc"
     },
     {
       "path": "mods/0.3-mc1.21.1fabric-3.4.3.3.jar",
@@ -2920,8 +2925,8 @@
     },
     {
       "path": "portable-pack.json",
-      "sizeBytes": 168,
-      "sha256": "dec22d761f2353187f046f2df4a2936c5292a1d76ebf53b3ec4661a0a622e634"
+      "sizeBytes": 122,
+      "sha256": "831821597379bfbcc65dfc57c7f71dee5dc9c50d20555256ddf1b0bfb156fbbd"
     },
     {
       "path": "resourcepacks/! §9FA_§aFLOWERS§0.zip",
@@ -2997,8 +3002,8 @@
     },
     {
       "path": "README.md",
-      "sizeBytes": 15401,
-      "sha256": "b143eb82456575aee2960f26573163336368825a208876ffb44f5304501d6415"
+      "sizeBytes": 16619,
+      "sha256": "06a06a30e81f2fa4ac4897a073e89d51e21ad048615e1dcdd02901971d0f8021"
     },
     {
       "path": "SAFETY.md",
@@ -3122,8 +3127,8 @@
     },
     {
       "path": "tools/verify_published.py",
-      "sizeBytes": 19066,
-      "sha256": "170bf80e54317ca6298603108a8cec74757e2d1d31ea603af8e2bf97f24035e4"
+      "sizeBytes": 19161,
+      "sha256": "70838ed34afc820e9d8728303926f63dc6492171a5c3eaae7a18df511c72ff5e"
     }
   ]
 }

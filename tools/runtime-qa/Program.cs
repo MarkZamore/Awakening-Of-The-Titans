@@ -81,6 +81,73 @@ if (command == "bind")
     Console.WriteLine("BOUND files="+records.Count);return;
 }
 
+if (command == "prepare-public")
+{
+    if (Directory.Exists(root)) throw new IOException("Public installation requires a new empty fixture root.");
+    var revision = Required("revision");
+    if (!System.Text.RegularExpressions.Regex.IsMatch(revision, "^[0-9a-f]{40}$"))
+        throw new ArgumentException("Expected the full published pack revision.");
+    using var catalog = JsonDocument.Parse(File.ReadAllText(Required("catalog-entry")));
+    var entry = catalog.RootElement;
+    packName = entry.GetProperty("relativePath").GetString()!;
+    RequireComponent(packName);
+    var source = entry.GetProperty("source");
+    if (source.GetProperty("tag").GetString() != "pack-latest")
+        throw new InvalidDataException("The fixture must install the public rolling release.");
+
+    paths.Ensure();
+    var canonical = paths.CombineUnderPacks(packName);
+    Directory.CreateDirectory(canonical);
+    Write(Path.Combine(canonical, "portable-pack-source.json"), new
+    {
+        schemaVersion = 1,
+        owner = source.GetProperty("owner").GetString(),
+        repo = source.GetProperty("repo").GetString(),
+        tag = "pack-latest"
+    });
+    Write(marker, new Fixture("integrated", packName, DateTimeOffset.UtcNow));
+    var logger = new Logger(paths.LogFile);
+    using var timeout = new CancellationTokenSource(TimeSpan.FromMinutes(45));
+    var sync = new PortablePackSyncService(paths, logger);
+    var result = await sync.SyncAsync(packName, Progress(), timeout.Token);
+    if (result.Outcome != PackSyncOutcome.Installed || result.Revision != revision || result.BytesDownloaded <= 0)
+        throw new InvalidDataException($"Unexpected clean sync result: {result.Outcome} {result.Revision}");
+    Write(Path.Combine(root, "public-sync.json"), result);
+
+    using var publicRuntimeService = new PackRuntimeService(paths, logger);
+    var runtime = await publicRuntimeService.PrepareAsync(packName, Progress(), timeout.Token);
+    if (runtime.Descriptor.ClientJar.Length != 0 || !File.Exists(runtime.ClientJarPath))
+        throw new InvalidDataException("Public pack did not use the official-client installation path.");
+    if (Directory.Exists(paths.SharedRuntime) &&
+        Directory.EnumerateFiles(paths.SharedRuntime, "javaw.exe", SearchOption.AllDirectories).Any())
+        throw new InvalidDataException("The clean Fabric runtime downloaded a second Java.");
+    using var pins = JsonDocument.Parse(File.ReadAllText(Path.Combine(canonical, "launcher", "runtime-libraries.json")));
+    var runtimeLog = File.ReadAllText(paths.LogFile);
+    var libraries = new List<object>();
+    foreach (var item in pins.RootElement.EnumerateObject())
+    {
+        var pin = item.Value;
+        var coordinate = pin.GetProperty("coordinate").GetString()!;
+        var name = Path.GetFileName(new Uri(pin.GetProperty("url").GetString()!).AbsolutePath);
+        RequireComponent(name);
+        var matches = Directory.GetFiles(runtime.LibrariesRoot, name, SearchOption.AllDirectories);
+        var sha256 = pin.GetProperty("sha256").GetString()!;
+        if (matches.Length != 1 || Hash(matches[0]) != sha256 ||
+            !runtimeLog.Contains($"Verified runtime library from pack delivery: {coordinate}", StringComparison.Ordinal))
+            throw new InvalidDataException($"Missing or unverified library in the shared cache: {coordinate}");
+        libraries.Add(new { coordinate, sha256, path = Path.GetRelativePath(runtime.LibrariesRoot, matches[0]) });
+    }
+    if (libraries.Count != 4) throw new InvalidDataException("Expected four reviewed Awakening runtime libraries.");
+    Write(Path.Combine(root, "public-runtime-proof.json"), new
+    {
+        revision, officialClientSha256 = Hash(runtime.ClientJarPath),
+        launcherAssemblySha256 = Hash(typeof(PackRuntimeService).Assembly.Location), libraries
+    });
+    Write(Path.Combine(root, "runtime.json"), runtime);
+    Console.WriteLine($"PUBLIC_PREPARED revision={result.Revision} downloaded={result.BytesDownloaded}");
+    return;
+}
+
 if (command == "prepare")
 {
     if (Directory.Exists(root)) throw new IOException("Use a new independent fixture root.");
@@ -421,7 +488,14 @@ using var process = launcher.BuildProcess(profile, launchOption);
 if(fixture.Mode=="integrated"){
     var complete=typeof(MinecraftProcessService).GetMethod("CompleteJvmArguments",System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Static)
         ?? throw new MissingMethodException("Production CompleteJvmArguments is unavailable.");
-    complete.Invoke(null,new object?[]{process.StartInfo,profile,instance.PackDirectory,new PackJvmArgumentsService(launchLogger),true});
+    object?[] common = [process.StartInfo, profile, instance.PackDirectory, new PackJvmArgumentsService(launchLogger)];
+    var parameters = complete.GetParameters();
+    complete.Invoke(null, parameters.Length switch
+    {
+        4 => common,
+        5 when parameters[4].ParameterType == typeof(bool) => [..common, true],
+        _ => throw new MissingMethodException("Unsupported production CompleteJvmArguments signature.")
+    });
 }
 
 // Deep independent migration fixtures otherwise exceed CreateProcess' 32767

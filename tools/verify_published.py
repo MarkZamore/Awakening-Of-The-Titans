@@ -186,9 +186,10 @@ def manifest_inventory(pack, manifest, revision):
     check(manifest.get("revision") == revision, "Published manifest revision differs from the requested source commit")
     check(all(manifest.get(key) == value for key, value in (
         ("packId", info["id"]), ("name", info["name"]), ("relativePath", info["relativePath"]),
-        ("schemaVersion", 2), ("requiredLauncherFeatures", generate_manifest.REQUIRED_LAUNCHER_FEATURES),
+        ("schemaVersion", 2), ("requiredLauncherFeatures", generate_manifest.launcher_features(runtime)),
         ("minecraftVersion", runtime["minecraftVersion"]), ("loader", runtime["loader"]),
-        ("clientJar", runtime["clientJar"]))), "Published manifest identity, platform or launcher contract differs")
+        ("clientJar", runtime.get("clientJar")),
+        ("legacyFiles", generate_manifest.client_fields(pack,runtime).get("legacyFiles")))), "Published manifest identity, platform or launcher contract differs")
     files = read_json(pack / "tools/distribution-lock.json")["files"]
     check(manifest.get("files") == files, "Published file inventory differs from the verified source lock")
     expected_files = {row["path"]: row for row in files}

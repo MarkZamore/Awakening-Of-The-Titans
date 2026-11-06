@@ -1,0 +1,34 @@
+{
+  "61ad4ef7f9131fcf6d25c34b817f90d6da06c9e9": {
+    "url": "https://github.com/MarkZamore/Awakening-Of-The-Titans/releases/download/runtime-libraries-1.21.1-v1/icu4j-73.2.jar",
+    "sha256": "29280822f4b0796acef1f79b90b1d0c1edd86c10e876a848e04b8a6298a16bf9",
+    "sizeBytes": 14567819,
+    "upstream": "https://repo.maven.apache.org/maven2/com/ibm/icu/icu4j/73.2/icu4j-73.2.jar",
+    "coordinate": "com.ibm.icu:icu4j:73.2",
+    "license": "Unicode/ICU. Preserve the embedded LICENSE and its third-party notices."
+  },
+  "c24946d46824bd528054bface3231d2ecb7e95e8": {
+    "url": "https://github.com/MarkZamore/Awakening-Of-The-Titans/releases/download/runtime-libraries-1.21.1-v1/fastutil-8.5.12.jar",
+    "sha256": "b5543ee08d062d551cf0a5c9bc0fb70588b0382079029ba48941fa9c9be8a5d4",
+    "sizeBytes": 23326598,
+    "upstream": "https://repo.maven.apache.org/maven2/it/unimi/dsi/fastutil/8.5.12/fastutil-8.5.12.jar",
+    "coordinate": "it.unimi.dsi:fastutil:8.5.12",
+    "license": "Apache-2.0 according to exact artifact POM and author repository. Supply the license and applicable notices with any distribution."
+  },
+  "d15b53a14cf20fdcaa98f731af5dda654452c010": {
+    "url": "https://github.com/MarkZamore/Awakening-Of-The-Titans/releases/download/runtime-libraries-1.21.1-v1/brigadier-1.3.10.jar",
+    "sha256": "c8ee4136e474ac7723ca2b432ec8d1a2bc88ef7d1ec57c314ba9e33cdc83dd75",
+    "sizeBytes": 80082,
+    "upstream": "https://libraries.minecraft.net/com/mojang/brigadier/1.3.10/brigadier-1.3.10.jar",
+    "coordinate": "com.mojang:brigadier:1.3.10",
+    "license": "MIT. Exact source artifact carries Microsoft MIT headers. Distribute notice alongside the JAR."
+  },
+  "67d4de6d7f95d89bcf5862995fb854ebaec02a34": {
+    "url": "https://github.com/MarkZamore/Awakening-Of-The-Titans/releases/download/runtime-libraries-1.21.1-v1/datafixerupper-8.0.16.jar",
+    "sha256": "ffc138bc2596c291781b0d5e211ccac51f0f2345f27fc2742f335cedf7e2870d",
+    "sizeBytes": 724313,
+    "upstream": "https://libraries.minecraft.net/com/mojang/datafixerupper/8.0.16/datafixerupper-8.0.16.jar",
+    "coordinate": "com.mojang:datafixerupper:8.0.16",
+    "license": "MIT. Exact source artifact carries Microsoft MIT headers. Distribute notice alongside the JAR."
+  }
+}

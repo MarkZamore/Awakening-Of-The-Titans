@@ -16,6 +16,14 @@ dotnet artifacts/qa-host/AotRuntimeQa.dll prepare artifacts/qa --source . --cach
 
 The descriptor must be exact Minecraft1.21.1/Fabric. Only the copied pack is a game input. Nested `config/fancymenu/options.txt` and `config/yosbr/options.txt` are preserved; the author baseline and derivative intentionally have different handling of the personal root `options.txt`. No render, simulation or graphics settings are forced by this harness.
 
+For the published clean installation, build the host against the released launcher revision. Use a new fixture path and the exact published pack commit. This path uses the production GitHub sync before preparing Java, Minecraft and Fabric. It does not copy a source pack or any installation cache.
+
+```powershell
+dotnet <qa-host>/AotRuntimeQa.dll prepare-public <new-fixture> --catalog-entry tools/catalog-entry.json --revision <full-pack-commit>
+```
+
+The receipt must show `Installed` and the expected revision. After preparation, use the integrated launch commands below to enter and save a disposable Paradis world. Check the official client hash and the four library hashes in the common store, their GitHub delivery messages in the launcher log, and the absence of Mojang Java there.
+
 ## Native client/world lifecycle
 
 ```powershell

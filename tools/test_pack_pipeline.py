@@ -49,6 +49,19 @@ class PipelineTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'identity ASM and registry skin'):verify_staged(second,self.root/'dist-second')
     def test_repeated_preparation_is_identical_and_never_ships_personal_options(self):
         a=self.derived('a');b=self.derived('b');self.assertEqual(p.inventory(a),p.inventory(b));self.assertEqual((a/'tools/overlay-receipt.json').read_bytes(),(b/'tools/overlay-receipt.json').read_bytes());self.assertFalse((a/'options.txt').exists());self.assertEqual('PASS',p.verify(a)['status'])
+    def test_official_client_stays_in_author_pins_but_out_of_distribution(self):
+        from generate_manifest import client_fields, launcher_features
+
+        self.overlay['officialClientOnly'] = True
+        derived = self.derived()
+        client = self.upstream['client']
+        self.assertFalse((derived/client['path']).exists())
+        self.assertTrue(p.matches(self.base/client['path'], client))
+        descriptor = p.read_json(derived/'portable-pack.json')
+        self.assertNotIn('clientJar', descriptor)
+        self.assertEqual({'legacyFiles': [client]}, client_fields(derived, descriptor))
+        self.assertIn('runtime-library-sources-v1', launcher_features(descriptor))
+        self.assertEqual('PASS', p.verify(derived)['status'])
     def test_fancymenu_mod_options_are_preserved_while_personal_defaults_are_excluded(self):
         self.put(self.base,'config/fancymenu/options.txt',b'author-menu-settings');self.upstream['overrides'].append(p.record(self.base,self.base/'config/fancymenu/options.txt'))
         self.put(self.base,'configureddefaults/options.txt',b'renderDistance:4');self.upstream['overrides'].append(p.record(self.base,self.base/'configureddefaults/options.txt'))
