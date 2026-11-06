@@ -27,6 +27,9 @@ jobs:
         run: |
           python -B -m unittest discover -s tools -p 'test_*.py'
           python -B tools/restore_distribution.py --pack . --verify-only
+          if test -f launcher/controls-preset.txt; then
+            python -B tools/keybinds/check_preset.py
+          fi
       - name: Stage and verify payloads
         run: |
           python -B tools/generate_manifest.py --pack . --out dist --revision "$GITHUB_SHA"

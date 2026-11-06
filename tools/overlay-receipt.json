@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "packId": "attack-on-titan",
   "upstreamLockSha256": "09947fe917f6128ba44a14bebd1f7f22cb555dba6db62a7d39427d8908745303",
-  "overlaySha256": "0da0aabb94c9d9b4a159a738d19d5b96a38876486e4bc3652e6a6a63d5dfa310",
-  "inventorySha256": "7bb81fe7df8563b921a1ff978d9b1ce261df803a3ede972f9a5f4b5d23d5db02",
+  "overlaySha256": "58e9a5d68199c420b79e4ff62f848b639fe6b5ae03da355cf9c2cba0eb76033a",
+  "inventorySha256": "8df76ae6db4d8744960677f8208013a713b983858be7541d9bcb351bb0033d78",
   "operations": [
     {
       "path": "config/fancymenu/customization/spawn_layout.txt",
@@ -47,6 +47,16 @@
     },
     {
       "path": "config/yosbr/options.txt",
+      "sha256": "ac54b2c582393436b6dec66bb327fc04dfdaee1d5b8acceb4c16aa4645ffe1fe",
+      "sizeBytes": 639
+    },
+    {
+      "path": "launcher/controls-preset.txt",
+      "sha256": "43bc3aefb09e887b61f7d9f7baa25b095b5ded3fb5d654d698d09cffffc9aca0",
+      "sizeBytes": 12137
+    },
+    {
+      "path": "configureddefaults/options.txt",
       "sha256": "ac54b2c582393436b6dec66bb327fc04dfdaee1d5b8acceb4c16aa4645ffe1fe",
       "sizeBytes": 639
     }

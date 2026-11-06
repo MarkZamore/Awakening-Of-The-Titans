@@ -109,6 +109,24 @@
       "authorOptionsProjection": "resource-packs-only",
       "upstreamOptionsSha256": "ba2a6ead2141e6b44fac3ade8be203020b9cda98bfcb900b0ee4600259278cc6",
       "reason": "First-launch defaults contain only the exact authored resource-pack lists/order, with no personal rendering or other options."
+    },
+    {
+      "operation": "add",
+      "path": "launcher/controls-preset.txt",
+      "source": "tools/overlay/launcher/controls-preset.txt",
+      "sizeBytes": 12137,
+      "sha256": "43bc3aefb09e887b61f7d9f7baa25b095b5ded3fb5d654d698d09cffffc9aca0",
+      "reason": "Optional author-based controls layout applied only after launcher confirmation."
+    },
+    {
+      "operation": "add",
+      "path": "configureddefaults/options.txt",
+      "source": "tools/overlay/config/yosbr/options.txt",
+      "sizeBytes": 639,
+      "sha256": "ac54b2c582393436b6dec66bb327fc04dfdaee1d5b8acceb4c16aa4645ffe1fe",
+      "authorOptionsProjection": "resource-packs-only",
+      "upstreamOptionsSha256": "ba2a6ead2141e6b44fac3ade8be203020b9cda98bfcb900b0ee4600259278cc6",
+      "reason": "Supply only the exact YOSBR resource-pack selection when the launcher first creates options during a confirmed preset application."
     }
   ],
   "networkLogging": "fabric-1.21.1-caught-throwables",

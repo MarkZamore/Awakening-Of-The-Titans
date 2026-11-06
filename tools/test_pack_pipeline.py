@@ -7,7 +7,7 @@ import pack_library
 
 def jar(mod_id='author',version='1'):
     stream=io.BytesIO()
-    with zipfile.ZipFile(stream,'w') as z:z.writestr('fabric.mod.json',json.dumps({'id':mod_id,'version':version,'name':mod_id,'schemaVersion':1}))
+    with zipfile.ZipFile(stream,'w') as z:z.writestr(zipfile.ZipInfo('fabric.mod.json'),json.dumps({'id':mod_id,'version':version,'name':mod_id,'schemaVersion':1}))
     return stream.getvalue()
 
 class PipelineTests(unittest.TestCase):
@@ -53,6 +53,34 @@ class PipelineTests(unittest.TestCase):
         self.put(self.base,'config/fancymenu/options.txt',b'author-menu-settings');self.upstream['overrides'].append(p.record(self.base,self.base/'config/fancymenu/options.txt'))
         self.put(self.base,'configureddefaults/options.txt',b'renderDistance:4');self.upstream['overrides'].append(p.record(self.base,self.base/'configureddefaults/options.txt'))
         out=self.derived();self.assertEqual(b'author-menu-settings',(out/'config/fancymenu/options.txt').read_bytes());self.assertFalse((out/'configureddefaults/options.txt').exists());self.assertFalse((out/'options.txt').exists())
+    def test_controls_preset_first_apply_requires_only_the_yosbr_projection(self):
+        self.put(self.base, 'options.txt', b'resourcePacks:["vanilla"]\nrenderDistance:4\n')
+        self.upstream['overrides'][-1] = p.record(self.base, self.base/'options.txt')
+        self.overlay['initialResourceDefaults'] = 'yosbr-resource-packs-only'
+        operations = self.overlay['operations']
+
+        def add(path, raw, source_path=None, **extra):
+            source_path = source_path or 'tools/overlay/' + path
+            self.put(self.source, source_path, raw)
+            operations.append(dict(operation='add', path=path, source=source_path,
+                                   reason='Fixture overlay', **p.fingerprint(self.source/source_path), **extra))
+
+        projection = b'resourcePacks:["vanilla"]\n'
+        binding = dict(authorOptionsProjection='resource-packs-only',
+                       upstreamOptionsSha256=p.digest(self.base/'options.txt'))
+        add('mods/yosbr.jar', jar('yosbr'), modIds=['yosbr'])
+        add(p.YOSBR_OPTIONS, projection, **binding)
+        add(p.PRESET_TARGET, b'key_key.forward:key.keyboard.w\n')
+        with self.assertRaisesRegex(ValueError, 'must ship together'):
+            self.derived('missing-first-apply')
+        add(p.PRESET_FIRST_OPTIONS, projection, 'tools/overlay/' + p.YOSBR_OPTIONS, **binding)
+        out = self.derived('paired')
+        self.assertEqual('PASS', p.verify(out)['status'])
+        self.assertEqual(projection, (out/p.PRESET_FIRST_OPTIONS).read_bytes())
+        self.assertFalse((out/'options.txt').exists())
+        operations[-1]['source'] = 'tools/overlay/options.txt'
+        with self.assertRaisesRegex(ValueError, 'Invalid/duplicate overlay target'):
+            self.derived('unreviewed-defaults')
     def test_authored_fancymenu_welcome_and_editor_flags_are_required_without_rewriting(self):
         raw=b"B:show_customization_overlay = 'false';\nB:show_welcome_screen = 'false';\nB:advanced_customization_mode = 'true';\n"
         self.put(self.base,'config/fancymenu/options.txt',raw);self.upstream['overrides'].append(p.record(self.base,self.base/'config/fancymenu/options.txt'))

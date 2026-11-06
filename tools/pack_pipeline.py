@@ -187,6 +187,17 @@ def shipping(rel):
     return (rel.split('/')[0] in ROOTS and rel not in personal
             and not set(PurePosixPath(rel).parts)&{'saves','logs','screenshots','crash-reports'}
             and not Path(rel).name.startswith(('.portable-','portable-pack-source')))
+
+PRESET_TARGET = 'launcher/controls-preset.txt'
+PRESET_FIRST_OPTIONS = 'configureddefaults/options.txt'
+YOSBR_OPTIONS = 'config/yosbr/options.txt'
+
+def overlay_shipping(op):
+    return shipping(op['path']) or (
+        op['path'] == PRESET_FIRST_OPTIONS and op.get('operation') == 'add'
+        and op.get('source') == 'tools/overlay/' + YOSBR_OPTIONS
+        and op.get('authorOptionsProjection') == 'resource-packs-only'
+    )
 def portable_bytes(upstream):
     return encoded({'schemaVersion':1,'minecraftVersion':upstream['pack']['minecraftVersion'],'loader':upstream['pack']['loader'],'clientJar':upstream['client']['path']})
 def pack_name(source):
@@ -210,11 +221,13 @@ def expected_inventory(upstream,overlay,source=None):
     all_base={r['path']:r for r in [*upstream['files'],*upstream['overrides'],upstream['client']]};seen=set()
     for pin in overlay.get('requiredUpstream',[]):require(pin['path'] in all_base and all_base[pin['path']]['sha256']==pin['sha256'],'Changed required upstream mechanism: '+pin['path'])
     for op in overlay['operations']:
-        rel=relative(op['path']);relative(op['source']);require(op['source'].startswith('tools/overlay/'),'Overlay payload must be committed under tools/overlay');require(shipping(rel) and rel.casefold() not in seen,'Invalid/duplicate overlay target');seen.add(rel.casefold())
+        rel=relative(op['path']);relative(op['source']);require(op['source'].startswith('tools/overlay/'),'Overlay payload must be committed under tools/overlay');require(overlay_shipping(op) and rel.casefold() not in seen,'Invalid/duplicate overlay target');seen.add(rel.casefold())
         require(op.get('operation') in {'add','replace'} and op.get('reason'),'Invalid overlay operation')
         require((op['operation']=='add' and rel not in all_base) or (op['operation']=='replace' and rel in all_base and op.get('upstreamSha256')==all_base[rel]['sha256']),'Conflicting upstream overlay target: '+rel)
         if op.get('authorOptionsProjection'):
-            require(op['authorOptionsProjection']=='resource-packs-only' and rel=='config/yosbr/options.txt' and op.get('upstreamOptionsSha256')==all_base.get('options.txt',{}).get('sha256'),'Author resource defaults binding differs')
+            require(op['authorOptionsProjection']=='resource-packs-only' and rel in {YOSBR_OPTIONS,PRESET_FIRST_OPTIONS} and op.get('upstreamOptionsSha256')==all_base.get('options.txt',{}).get('sha256'),'Author resource defaults binding differs')
+    require((PRESET_TARGET in seen)==(PRESET_FIRST_OPTIONS in seen),'Controls preset and its first-apply options template must ship together')
+    require(PRESET_FIRST_OPTIONS not in seen or overlay.get('initialResourceDefaults')=='yosbr-resource-packs-only','Controls preset first-apply template requires the YOSBR projection')
     expected={r['path']:{k:r[k] for k in ('path','sizeBytes','sha256')} for r in [*upstream['files'],*upstream['overrides']] if shipping(r['path'])}
     row=upstream['client'];expected[row['path']]={k:row[k] for k in ('path','sizeBytes','sha256')}
     for row in overlay['operations']:
@@ -269,7 +282,9 @@ def verify_resource_defaults(root,overlay,baseline=None):
     import resource_defaults
     require(overlay['initialResourceDefaults']=='yosbr-resource-packs-only','Unreviewed initial options policy')
     require(sum('yosbr' in op.get('modIds',[]) for op in overlay['operations'])==1,'Mandatory native YOSBR initializer is missing')
-    defaults=safe(root,'config/yosbr/options.txt').read_bytes();resource_defaults.validate(defaults)
+    defaults=safe(root,YOSBR_OPTIONS).read_bytes();resource_defaults.validate(defaults)
+    if any(op['path']==PRESET_FIRST_OPTIONS for op in overlay['operations']):
+        require(safe(root,PRESET_FIRST_OPTIONS).read_bytes()==defaults,'Controls preset first-apply template differs from YOSBR')
     if baseline is not None:require(defaults==resource_defaults.project(safe(baseline,'options.txt').read_bytes()),'Initial resource defaults differ from author selection/order')
 def verify_base_mod_policy(root,upstream,overlay):
     requirements=overlay.get('requiredBaseMods',[]);forbidden=overlay.get('forbiddenModIds',[]);targets=overlay.get('exactRuntimeTargets',[])
@@ -311,7 +326,7 @@ def overlay_plan(source,baseline,upstream,overlay):
     # applies only to the effective derivative after replacements below.
     verify_required_settings(baseline,overlay,effective=False)
     for op in operations:
-        rel=relative(op['path']);require(shipping(rel),'Overlay targets nonshipped content: '+rel);require(rel.casefold() not in seen,'Duplicate overlay target');seen.add(rel.casefold())
+        rel=relative(op['path']);require(overlay_shipping(op),'Overlay targets nonshipped content: '+rel);require(rel.casefold() not in seen,'Duplicate overlay target');seen.add(rel.casefold())
         require(isinstance(op.get('reason'),str) and op['reason'].strip(),'Overlay reason missing');require(op.get('operation') in {'add','replace'},'Unsupported overlay operation')
         if op['operation']=='add':require(rel not in base,'Addition collides with author resource: '+rel)
         else:require(rel in base and op.get('upstreamSha256')==base[rel]['sha256'],'Upstream conflict; review changed target: '+rel)
@@ -356,7 +371,7 @@ def verify(pack):
     verify_resource_defaults(pack,overlay)
     verify_base_mod_policy(pack,upstream,overlay)
     for row in overlay['operations']:require(projected_payload(pack,row)==safe(pack,row['path']).read_bytes(),'Missing/changed mandatory overlay output')
-    require(all(shipping(row['path']) or row['path'] in {upstream['client']['path'],'portable-pack.json'} for row in active['files']),'Private/personal file in distribution')
+    require(all(shipping(row['path']) or row['path'] in {upstream['client']['path'],'portable-pack.json',PRESET_FIRST_OPTIONS} for row in active['files']),'Private/personal file in distribution')
     check_records(pack,active['files'],complete=True)
     if active.get('supportFiles'):check_records(pack,active['supportFiles'])
     return {'status':'PASS','files':len(active['files']),'upstreamVersion':upstream['pack']['version'],'overlayOperations':len(overlay['operations']),'runtimeAcceptanceClaimed':False}

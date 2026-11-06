@@ -1,0 +1,218 @@
+{
+  "assignments": {
+    "key_keybind.sophisticatedbackpacks.open_backpack": "key.keyboard.i",
+    "key_keybind.sophisticatedbackpacks.inventory_interaction": "key.keyboard.keypad.decimal",
+    "key_keybind.sophisticatedbackpacks.toggle_upgrade_1": "key.keyboard.keypad.7",
+    "key_keybind.sophisticatedbackpacks.toggle_upgrade_2": "key.keyboard.keypad.8",
+    "key_key.ftbquests.quests": "key.keyboard.f7",
+    "key_key.ftbquests.gui_quest_panel.add_image": "key.keyboard.keypad.9",
+    "key_key.ftbquests.gui_quest_panel.add_page_break": "key.keyboard.keypad.enter",
+    "key_key.strongershifters.shift": "key.keyboard.right.alt",
+    "key_key.strongershifters.titan_eject": "key.keyboard.end",
+    "key_key.dannys-aot.odm_skills": "key.keyboard.right.bracket",
+    "key_key.dannys-aot.hood_toggle": "key.keyboard.apostrophe",
+    "key_key.dannys-aot.flare_cycle": "key.keyboard.semicolon",
+    "key_key.dannys-aot.flare_load": "key.keyboard.keypad.0",
+    "key_key.dannys-aot.apg_reload": "key.keyboard.comma",
+    "key_key.dannys-aot.gun_reload": "key.keyboard.period",
+    "key_key.dannys-aot.attack_titan_roar": "key.keyboard.right.control",
+    "key_key.civilian_aviation.landing_gear": "key.keyboard.keypad.1",
+    "key_key.civilian_aviation.switch_weapon": "key.keyboard.keypad.2",
+    "key_key.civilian_aviation.toggle_lights": "key.keyboard.keypad.3",
+    "key_key.immersive_aircraft.dismount": "key.keyboard.delete",
+    "key_key.immersive_aircraft.boost": "key.keyboard.keypad.4",
+    "key_key.immersive_aircraft.mouse_control": "key.keyboard.keypad.5",
+    "key_key.immersive_aircraft.free_look": "key.keyboard.keypad.6",
+    "key_key.dungeonconfig.open": "key.keyboard.keypad.multiply",
+    "key_key.niftycarts.action": "key.keyboard.keypad.subtract",
+    "key_key.niftycarts.slow": "key.keyboard.right.shift",
+    "key_key.disable_voice_chat": "key.keyboard.keypad.divide",
+    "key_key.voice_chat_group": "key.keyboard.pause",
+    "key_gui.xaero_waypoints_key": "key.keyboard.home",
+    "key_gui.xaero_minimap_settings": "key.keyboard.f9",
+    "key_gui.xaero_enlarge_map": "key.keyboard.f4",
+    "key_iris.keybind.toggleShaders": "key.keyboard.f8"
+  },
+  "sharedKeys": {
+    "key.mouse.left": {
+      "bindings": [
+        "key_key.attack",
+        "key_key.jei.cheatItemStack",
+        "key_key.jei.cheatOneItem",
+        "key_key.jei.maxTransferRecipeBookmark",
+        "key_key.jei.showRecipe2",
+        "key_key.jei.toggleCheatModeConfigButton",
+        "key_key.jei.toggleHideIngredient",
+        "key_key.jei.transferRecipeBookmark"
+      ],
+      "context": "World attack versus JEI hover, recipe, bookmark, cheat and edit actions in their native GUI contexts."
+    },
+    "key.mouse.right": {
+      "bindings": [
+        "key_key.immersive_aircraft.multi_use",
+        "key_key.jei.clearSearchBar",
+        "key_key.jei.showUses2",
+        "key_key.jei.toggleWildcardHideIngredient",
+        "key_key.parcool.ClingToCliff",
+        "key_key.use"
+      ],
+      "context": "Vanilla use and mounted aircraft use share the same gesture. ParCool checks for a climbable wall. JEI uses GUI and hover contexts."
+    },
+    "key.keyboard.w": {
+      "bindings": [
+        "key_key.forward",
+        "key_key.immersive_aircraft.multi_control_forward",
+        "key_key.immersive_aircraft.multi_control_push"
+      ],
+      "context": "Move forward on foot; forward or pitch down depending on the aircraft controls."
+    },
+    "key.keyboard.a": {
+      "bindings": [
+        "key_key.immersive_aircraft.multi_control_left",
+        "key_key.jei.bookmark",
+        "key_key.left"
+      ],
+      "context": "Move left on foot or in the aircraft, JEI bookmark while hovering in a screen."
+    },
+    "key.keyboard.s": {
+      "bindings": [
+        "key_key.back",
+        "key_key.immersive_aircraft.multi_control_backward",
+        "key_key.immersive_aircraft.multi_control_pull"
+      ],
+      "context": "Move backward on foot; backward or pitch up depending on the aircraft controls."
+    },
+    "key.keyboard.d": {
+      "bindings": [
+        "key_key.immersive_aircraft.multi_control_right",
+        "key_key.right"
+      ],
+      "context": "Move right on foot or while piloting."
+    },
+    "key.keyboard.space": {
+      "bindings": [
+        "key_key.immersive_aircraft.multi_control_throttle_up",
+        "key_key.immersive_aircraft.multi_control_up",
+        "key_key.jump",
+        "key_key.parcool.WallJump"
+      ],
+      "context": "Jump on foot, jump against a wall in ParCool, ascend or increase throttle while piloting."
+    },
+    "key.keyboard.left.shift": {
+      "bindings": [
+        "key_key.immersive_aircraft.multi_control_down",
+        "key_key.immersive_aircraft.multi_control_throttle_down",
+        "key_key.jei.pauseRecipeCycling",
+        "key_key.parcool.Breakfall",
+        "key_key.sneak"
+      ],
+      "context": "Sneak or prepare a ParCool breakfall on foot, descend or reduce throttle while piloting, pause recipe cycling in JEI."
+    },
+    "key.keyboard.left.control": {
+      "bindings": [
+        "key_key.parcool.FastRun",
+        "key_key.sprint"
+      ],
+      "context": "Vanilla sprint and ParCool fast run intentionally share the author movement gesture."
+    },
+    "key.mouse.middle": {
+      "bindings": [
+        "key_key.jei.cheatItemStack2",
+        "key_key.pickItem",
+        "key_keybind.sophisticatedbackpacks.sort"
+      ],
+      "context": "Pick block in the world, JEI cheat stack or backpack sort in screens."
+    },
+    "key.keyboard.1": {
+      "bindings": [
+        "key_key.dannys-aot.shifter_ability_1",
+        "key_key.hotbar.1"
+      ],
+      "context": "Vanilla hotbar and authored Danny ability slot use the same number. Danny dispatches the ability in shifter or Founder state. FounderHotbarKeyMixin suppresses the vanilla slot in its Founder path."
+    },
+    "key.keyboard.2": {
+      "bindings": [
+        "key_key.dannys-aot.shifter_ability_2",
+        "key_key.hotbar.2"
+      ],
+      "context": "Vanilla hotbar and authored Danny ability slot use the same number. Danny dispatches the ability in shifter or Founder state. FounderHotbarKeyMixin suppresses the vanilla slot in its Founder path."
+    },
+    "key.keyboard.3": {
+      "bindings": [
+        "key_key.dannys-aot.shifter_ability_3",
+        "key_key.hotbar.3"
+      ],
+      "context": "Vanilla hotbar and authored Danny ability slot use the same number. Danny dispatches the ability in shifter or Founder state. FounderHotbarKeyMixin suppresses the vanilla slot in its Founder path."
+    },
+    "key.keyboard.4": {
+      "bindings": [
+        "key_key.dannys-aot.shifter_ability_4",
+        "key_key.hotbar.4"
+      ],
+      "context": "Vanilla hotbar and authored Danny ability slot use the same number. Danny dispatches the ability in shifter or Founder state. FounderHotbarKeyMixin suppresses the vanilla slot in its Founder path."
+    },
+    "key.keyboard.5": {
+      "bindings": [
+        "key_key.dannys-aot.shifter_ability_5",
+        "key_key.hotbar.5"
+      ],
+      "context": "Vanilla hotbar and authored Danny ability slot use the same number. Danny dispatches the ability in shifter or Founder state. FounderHotbarKeyMixin suppresses the vanilla slot in its Founder path."
+    },
+    "key.keyboard.6": {
+      "bindings": [
+        "key_key.dannys-aot.shifter_ability_6",
+        "key_key.hotbar.6"
+      ],
+      "context": "Vanilla hotbar and authored Danny ability slot use the same number. Danny dispatches the ability in shifter or Founder state. FounderHotbarKeyMixin suppresses the vanilla slot in its Founder path."
+    },
+    "key.keyboard.7": {
+      "bindings": [
+        "key_key.dannys-aot.shifter_ability_7",
+        "key_key.hotbar.7"
+      ],
+      "context": "Vanilla hotbar and authored Danny ability slot use the same number. Danny dispatches the ability in shifter or Founder state. FounderHotbarKeyMixin suppresses the vanilla slot in its Founder path."
+    },
+    "key.keyboard.8": {
+      "bindings": [
+        "key_key.dannys-aot.shifter_ability_8",
+        "key_key.hotbar.8"
+      ],
+      "context": "Vanilla hotbar and authored Danny ability slot use the same number. Danny dispatches the ability in shifter or Founder state. FounderHotbarKeyMixin suppresses the vanilla slot in its Founder path."
+    },
+    "key.keyboard.9": {
+      "bindings": [
+        "key_key.dannys-aot.shifter_ability_9",
+        "key_key.hotbar.9"
+      ],
+      "context": "Vanilla hotbar and authored Danny ability slot use the same number. Danny dispatches the ability in shifter or Founder state. FounderHotbarKeyMixin suppresses the vanilla slot in its Founder path."
+    },
+    "key.keyboard.backspace": {
+      "bindings": [
+        "key_key.jei.recipeBack",
+        "key_key.strongershifters.themetoggle"
+      ],
+      "context": "Stronger Shifters theme in gameplay and recipe back in the JEI screen."
+    },
+    "key.keyboard.r": {
+      "bindings": [
+        "key_key.dannys-aot.reload_blade",
+        "key_key.jei.showRecipe"
+      ],
+      "context": "Danny blade reload checks held BladeItem and raw input outside screens; JEI recipe is a GUI-hover action."
+    },
+    "key.keyboard.page.up": {
+      "bindings": [
+        "key_key.jei.previousCategory",
+        "key_key.jei.previousRecipePage"
+      ],
+      "context": "Retain JEI authored page/category shortcut; the native recipe GUI handles these through its own navigation."
+    },
+    "key.keyboard.page.down": {
+      "bindings": [
+        "key_key.jei.nextCategory",
+        "key_key.jei.nextRecipePage"
+      ],
+      "context": "Retain JEI authored page/category shortcut; the native recipe GUI handles these through its own navigation."
+    }
+  }
+}
