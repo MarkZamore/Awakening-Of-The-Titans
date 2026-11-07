@@ -392,7 +392,7 @@ def authored_support_inventory(source):
         if (source/rel).is_file():support.append(record(source,source/rel))
     for path in (source/'library').rglob('*'):
         if path.is_file():support.append(record(source,path))
-    for rel in ('tools/network_logging_policy.py','tools/network-logging-policy.json','tools/resource_defaults.py','tools/base-mod-policy-evidence.json','tools/verify_published.py','tools/server_menu_policy.py','tools/server-menu-policy-proof.json'):
+    for rel in ('tools/network_logging_policy.py','tools/network-logging-policy.json','tools/resource_defaults.py','tools/base-mod-policy-evidence.json','tools/verify_published.py','tools/server_menu_policy.py','tools/server-menu-policy-proof.json','tools/public_server_policy.py','tools/public-server-policy.json'):
         if (source/rel).is_file():support.append(record(source,source/rel))
     for name in ('tools/logging','tools/first-launch-defaults','tools/modeled-update'):
         for path in (source/name).rglob('*'):

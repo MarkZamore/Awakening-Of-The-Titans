@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "policy": "steam-only-automatic-server-list-v1",
+  "reviewedInventorySha256": "f559a15e27562269725f77da30193cb03423607a927d821d25d82e6c2d0ebdfd",
+  "reviewedManifestRevision": "fc1eb01aaff0ae65ba3acdc50d0745e2e4896a2b",
+  "reviewedManifestSha256": "1df83d666cf5a54b4cc5be747ddf7f55551c12a53a7715e6eee3e6e711f14800",
+  "scope": "Mandatory full-delivery drift guard supplements the exact FancyMenu overlay. Current public config/launcher archives independently verified; only the server shortcut and pack-owned declaration changed.",
+  "autoRepin": false,
+  "checkerSource": "https://github.com/MarkZamore/LANMinecraft/blob/940a5629a231eb608bad3b0772df0a5c8623966f/tools/PackData/ServerPolicy/public_server_policy.py"
+}

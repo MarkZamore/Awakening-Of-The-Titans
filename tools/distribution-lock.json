@@ -3002,8 +3002,8 @@
   "supportFiles": [
     {
       "path": "AGENTS.md",
-      "sizeBytes": 11321,
-      "sha256": "77fb42f611bec95b043e612d2b855c8ae8278b1a94b8177d630afd4a0d215735"
+      "sizeBytes": 12969,
+      "sha256": "5fb17a06788a93a86d9a15c55af50f4e28275e330e01f8229f0cb914908bbe94"
     },
     {
       "path": "README.md",
@@ -3124,6 +3124,16 @@
       "path": "tools/network_logging_policy.py",
       "sizeBytes": 13849,
       "sha256": "03537bd7fb76813d67ad57a63b033edbd4fd94229769e92613ff23414a15d591"
+    },
+    {
+      "path": "tools/public-server-policy.json",
+      "sizeBytes": 744,
+      "sha256": "71415f9894a11cad8d652ad18e5cc7b52919f854423a1b5e2231e37c8c06b4b7"
+    },
+    {
+      "path": "tools/public_server_policy.py",
+      "sizeBytes": 3881,
+      "sha256": "59782a6263b2a6bf06a0458a601ad69242b5ebc3247f2cfa0fafe945f6631254"
     },
     {
       "path": "tools/resource_defaults.py",
