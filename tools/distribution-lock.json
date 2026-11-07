@@ -22,8 +22,8 @@
     "schemaVersion": 1,
     "packId": "attack-on-titan",
     "upstreamLockSha256": "09947fe917f6128ba44a14bebd1f7f22cb555dba6db62a7d39427d8908745303",
-    "overlaySha256": "b511e80cea4fe18ad605468ee7290b7dfb8498ed069c0218aa022335fb85e1ce",
-    "inventorySha256": "d3f7882b51f5ebe09a172003e99497751cfbb0b3e83a32688f2ee4f08a4b1297",
+    "overlaySha256": "c7b1e663212829f89a0ada735d87eda5689d43659ec818e0cb124faa7820de3e",
+    "inventorySha256": "313b036ed8df1c2382168aa60d66adc4f7886ecab5db95b194ba683ddbe06e93",
     "operations": [
       {
         "path": "config/fancymenu/customization/spawn_layout.txt",
@@ -42,8 +42,8 @@
       },
       {
         "path": "launcher/pack-owned.txt",
-        "sha256": "aca47a7399d037e4e3e347fd69672e7cd9d88d3f3363315d9c9c4fae2c6d6b1a",
-        "sizeBytes": 231
+        "sha256": "014e314f811143f3dcd16f7f36dc9f67347fbed01040549e6db1f3dc70bf18df",
+        "sizeBytes": 287
       },
       {
         "path": "mods/aot-world-type-lock-1.0.2.jar",
@@ -84,6 +84,11 @@
         "path": "launcher/runtime-libraries.json",
         "sha256": "6353119309cc56e053e508d642de6b54ee1dc9bf97148d2c83bf83997b2d94fc",
         "sizeBytes": 2251
+      },
+      {
+        "path": "config/fancymenu/customization/title_screen_layout1.txt",
+        "sha256": "28d47fddb1d9a86e242c4c7b848fcafb4c3646a20cfb2bb36585c6d04e872e39",
+        "sizeBytes": 52024
       }
     ]
   },
@@ -1355,8 +1360,8 @@
     },
     {
       "path": "config/fancymenu/customization/title_screen_layout1.txt",
-      "sizeBytes": 55038,
-      "sha256": "08361028117663937520ae078318f55cecedd1628292af68c242d2eed443dae5"
+      "sizeBytes": 52024,
+      "sha256": "28d47fddb1d9a86e242c4c7b848fcafb4c3646a20cfb2bb36585c6d04e872e39"
     },
     {
       "path": "config/fancymenu/customization/tut_layout.txt",
@@ -2365,8 +2370,8 @@
     },
     {
       "path": "launcher/pack-owned.txt",
-      "sizeBytes": 231,
-      "sha256": "aca47a7399d037e4e3e347fd69672e7cd9d88d3f3363315d9c9c4fae2c6d6b1a"
+      "sizeBytes": 287,
+      "sha256": "014e314f811143f3dcd16f7f36dc9f67347fbed01040549e6db1f3dc70bf18df"
     },
     {
       "path": "launcher/runtime-libraries.json",
@@ -2997,13 +3002,13 @@
   "supportFiles": [
     {
       "path": "AGENTS.md",
-      "sizeBytes": 10649,
-      "sha256": "c7db0c7f3619b45c6dd83d08f2b247ec6b65130c8305538f4eb008985452f63a"
+      "sizeBytes": 11321,
+      "sha256": "77fb42f611bec95b043e612d2b855c8ae8278b1a94b8177d630afd4a0d215735"
     },
     {
       "path": "README.md",
-      "sizeBytes": 16619,
-      "sha256": "06a06a30e81f2fa4ac4897a073e89d51e21ad048615e1dcdd02901971d0f8021"
+      "sizeBytes": 17556,
+      "sha256": "82731d6d6278c76325584771b8503440d19344f82b1a5c7a1c7b7de7acd9459a"
     },
     {
       "path": "SAFETY.md",
@@ -3012,8 +3017,8 @@
     },
     {
       "path": "TESTING-STATUS.md",
-      "sizeBytes": 18085,
-      "sha256": "343c3bc8c09492b1eb31c61f7f8bd35c2cb463c4dc9b94476edf949d9b431289"
+      "sizeBytes": 19268,
+      "sha256": "40e99274709d245538c5f61dd19e23601dec0ee89c2f07208851054606b754ee"
     },
     {
       "path": "library/README.md",
@@ -3022,8 +3027,8 @@
     },
     {
       "path": "library/content.json",
-      "sizeBytes": 6684,
-      "sha256": "12a225cde3c55ebaf714938f85a549404ab4638bed6aa196b925f19e98084d60"
+      "sizeBytes": 6869,
+      "sha256": "593a0141d84c3903e8282c823cde278a4bbe56c73fdb3b81c140797ecb0538ce"
     },
     {
       "path": "library/loaded-mods.json",
@@ -3124,6 +3129,16 @@
       "path": "tools/resource_defaults.py",
       "sizeBytes": 1857,
       "sha256": "73e7b65dffbfdb8d37a6194b5e6490f7785e2a8d5a62d7f79ae056f73f54380a"
+    },
+    {
+      "path": "tools/server-menu-policy-proof.json",
+      "sizeBytes": 845,
+      "sha256": "9287110dc92059161f94fbf89cd57b92c1d16898135fe742b90a98e4a852b828"
+    },
+    {
+      "path": "tools/server_menu_policy.py",
+      "sizeBytes": 1531,
+      "sha256": "073b1ae15ecfaeb6f6145ea40e80e06f5d5956c43c006f57f0b9c77bb42725d3"
     },
     {
       "path": "tools/verify_published.py",

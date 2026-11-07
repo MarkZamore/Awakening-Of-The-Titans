@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "source": "exact upstream overrides from tools/upstream-lock.json",
+  "input": {
+    "path": "config/fancymenu/customization/title_screen_layout1.txt",
+    "sizeBytes": 55038,
+    "sha256": "08361028117663937520ae078318f55cecedd1628292af68c242d2eed443dae5",
+    "archiveEntry": "overrides/config/fancymenu/customization/title_screen_layout1.txt"
+  },
+  "output": {
+    "path": "config/fancymenu/customization/title_screen_layout1.txt",
+    "sizeBytes": 52024,
+    "sha256": "28d47fddb1d9a86e242c4c7b848fcafb4c3646a20cfb2bb36585c6d04e872e39"
+  },
+  "removedPublicShortcutElements": 1,
+  "removedElementSha256": "4a909fd7a073ab74e0285ef0b82df78a659235cf53a674a060c4accf72d20313",
+  "otherMenuBytesPreserved": true,
+  "personalServerFilesWritten": false,
+  "nativeGameVisualCheck": "NOT RUN; player may launch manually"
+}

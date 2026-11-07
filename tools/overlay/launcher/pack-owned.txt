@@ -4,3 +4,4 @@ config/fancymenu/customization/world_type_layout.txt
 config/fancymenu/customization/create_world_screen_layout.txt
 config/log4j2.xml
 config/yosbr/options.txt
+config/fancymenu/customization/title_screen_layout1.txt

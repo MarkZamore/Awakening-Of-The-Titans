@@ -222,6 +222,7 @@ def expected_inventory(upstream,overlay,source=None):
         require(overlay.get('initialResourceDefaults')=='yosbr-resource-packs-only','Mandatory native first-launch author resource defaults are missing')
         require(overlay.get('baseModPolicy')=='preserve-awakening-1.8.1-gameplay' and len(overlay.get('requiredBaseMods',[]))==8 and len(overlay.get('forbiddenModIds',[]))==2,'Mandatory original gameplay/single-grave policy is missing')
         require(overlay.get('officialClientOnly') is True,'Minecraft client must remain outside the public pack payload')
+        require(overlay.get('publicServerPolicy')=='no-public-server-shortcuts-v1','Mandatory public-server menu policy is missing')
     require(overlay.get('platform')=={'minecraftVersion':upstream['pack']['minecraftVersion'],'loaderType':upstream['pack']['loader']['type']},'Overlay platform differs from author')
     all_base={r['path']:r for r in [*upstream['files'],*upstream['overrides'],upstream['client']]};seen=set()
     for pin in overlay.get('requiredUpstream',[]):require(pin['path'] in all_base and all_base[pin['path']]['sha256']==pin['sha256'],'Changed required upstream mechanism: '+pin['path'])
@@ -277,6 +278,9 @@ def verify_required_settings(root,overlay,effective=True):
         text=spawn.read_text(encoding='utf-8-sig');require('action_type:write_file_in_game_dir' not in text and 'action_type:quitgame' not in text,'Spawn-choice menu can rewrite the required Paradis start')
     world_type=menus/'world_type_layout.txt'
     if world_type.is_file():require('label = Spawn in OverWorld' not in world_type.read_text(encoding='utf-8-sig'),'Overworld creation choice returned')
+    if overlay.get('publicServerPolicy'):
+        from server_menu_policy import verify as verify_server_menu
+        verify_server_menu(root,overlay)
 def verify_logging(root,overlay):
     if overlay.get('networkLogging'):
         require(overlay['networkLogging']=='fabric-1.21.1-caught-throwables','Unreviewed native logging profile')
@@ -388,7 +392,7 @@ def authored_support_inventory(source):
         if (source/rel).is_file():support.append(record(source,source/rel))
     for path in (source/'library').rglob('*'):
         if path.is_file():support.append(record(source,path))
-    for rel in ('tools/network_logging_policy.py','tools/network-logging-policy.json','tools/resource_defaults.py','tools/base-mod-policy-evidence.json','tools/verify_published.py'):
+    for rel in ('tools/network_logging_policy.py','tools/network-logging-policy.json','tools/resource_defaults.py','tools/base-mod-policy-evidence.json','tools/verify_published.py','tools/server_menu_policy.py','tools/server-menu-policy-proof.json'):
         if (source/rel).is_file():support.append(record(source,source/rel))
     for name in ('tools/logging','tools/first-launch-defaults','tools/modeled-update'):
         for path in (source/name).rglob('*'):

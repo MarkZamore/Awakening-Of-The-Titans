@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "packId": "attack-on-titan",
   "upstreamLockSha256": "09947fe917f6128ba44a14bebd1f7f22cb555dba6db62a7d39427d8908745303",
-  "overlaySha256": "b511e80cea4fe18ad605468ee7290b7dfb8498ed069c0218aa022335fb85e1ce",
-  "inventorySha256": "d3f7882b51f5ebe09a172003e99497751cfbb0b3e83a32688f2ee4f08a4b1297",
+  "overlaySha256": "c7b1e663212829f89a0ada735d87eda5689d43659ec818e0cb124faa7820de3e",
+  "inventorySha256": "313b036ed8df1c2382168aa60d66adc4f7886ecab5db95b194ba683ddbe06e93",
   "operations": [
     {
       "path": "config/fancymenu/customization/spawn_layout.txt",
@@ -22,8 +22,8 @@
     },
     {
       "path": "launcher/pack-owned.txt",
-      "sha256": "aca47a7399d037e4e3e347fd69672e7cd9d88d3f3363315d9c9c4fae2c6d6b1a",
-      "sizeBytes": 231
+      "sha256": "014e314f811143f3dcd16f7f36dc9f67347fbed01040549e6db1f3dc70bf18df",
+      "sizeBytes": 287
     },
     {
       "path": "mods/aot-world-type-lock-1.0.2.jar",
@@ -64,6 +64,11 @@
       "path": "launcher/runtime-libraries.json",
       "sha256": "6353119309cc56e053e508d642de6b54ee1dc9bf97148d2c83bf83997b2d94fc",
       "sizeBytes": 2251
+    },
+    {
+      "path": "config/fancymenu/customization/title_screen_layout1.txt",
+      "sha256": "28d47fddb1d9a86e242c4c7b848fcafb4c3646a20cfb2bb36585c6d04e872e39",
+      "sizeBytes": 52024
     }
   ]
 }

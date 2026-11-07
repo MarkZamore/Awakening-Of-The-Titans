@@ -19,6 +19,11 @@
         "show_welcome_screen": false
       },
       "reason": "Preserve the authored player menu with no editor toolbar or first-run welcome screen; do not rewrite personal mod configuration."
+    },
+    {
+      "path": "config/fancymenu/customization/title_screen_layout1.txt",
+      "sha256": "08361028117663937520ae078318f55cecedd1628292af68c242d2eed443dae5",
+      "reason": "Exact authored title menu before removal of the public-server shortcut; review changes rather than silently restoring advertisements."
     }
   ],
   "operations": [
@@ -54,8 +59,8 @@
       "operation": "add",
       "path": "launcher/pack-owned.txt",
       "source": "tools/overlay/launcher/pack-owned.txt",
-      "sizeBytes": 231,
-      "sha256": "aca47a7399d037e4e3e347fd69672e7cd9d88d3f3363315d9c9c4fae2c6d6b1a",
+      "sizeBytes": 287,
+      "sha256": "014e314f811143f3dcd16f7f36dc9f67347fbed01040549e6db1f3dc70bf18df",
       "reason": "Own fixed spawn/menu, bounded logging XML and the missing-file-only resource defaults template; never own personal root options.txt."
     },
     {
@@ -135,6 +140,15 @@
       "sizeBytes": 2251,
       "sha256": "6353119309cc56e053e508d642de6b54ee1dc9bf97148d2c83bf83997b2d94fc",
       "reason": "Deliver hash-pinned licensed runtime libraries directly to the common launcher cache."
+    },
+    {
+      "operation": "replace",
+      "path": "config/fancymenu/customization/title_screen_layout1.txt",
+      "source": "tools/overlay/config/fancymenu/customization/title_screen_layout1.txt",
+      "sizeBytes": 52024,
+      "sha256": "28d47fddb1d9a86e242c4c7b848fcafb4c3646a20cfb2bb36585c6d04e872e39",
+      "upstreamSha256": "08361028117663937520ae078318f55cecedd1628292af68c242d2eed443dae5",
+      "reason": "Remove only the authored automatic public-server shortcut; retain normal multiplayer, Steam worlds and personal/manual server entries."
     }
   ],
   "networkLogging": "fabric-1.21.1-caught-throwables",
@@ -197,5 +211,6 @@
       "reason": "Client-only MCEF cache relocation is qualified only for this exact original author JAR; dedicated server omits this client-only target."
     }
   ],
-  "officialClientOnly": true
+  "officialClientOnly": true,
+  "publicServerPolicy": "no-public-server-shortcuts-v1"
 }
