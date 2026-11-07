@@ -2,6 +2,7 @@
 
 from collections import defaultdict
 from hashlib import sha256
+import argparse
 import json
 from pathlib import Path
 import re
@@ -22,11 +23,17 @@ def read_json(path):
 
 
 def render(registered):
-    changes = read_json(LAYOUT)["assignments"]
-    missing = changes.keys() - registered.keys()
-    if missing:
-        raise ValueError(f"Unregistered bindings: {sorted(missing)}")
-    keys = registered | changes
+    layout = read_json(LAYOUT)
+    if layout["assignments"]:
+        raise ValueError("The preset must reproduce the author controls without overrides.")
+    keys = registered
+    raw_keys = "".join(f"{name}:{value}\n" for name, value in sorted(keys.items())).encode("utf-8")
+    if sha256(raw_keys).hexdigest() != layout["authorKeysSha256"]:
+        raise ValueError("Native key capture differs from the pinned author controls.")
+    upstream = read_json(PACK / "tools/upstream-lock.json")
+    options = next(row for row in upstream["overrides"] if row["path"] == "options.txt")
+    if options["sha256"] != layout["authorOptionsSha256"]:
+        raise ValueError("Author options changed. Review and recapture the author controls.")
     header = "# Awakening controls for Minecraft 1.21.1 / Fabric\n"
     return (header + "".join(f"{name}:{value}\n" for name, value in keys.items())).encode("utf-8")
 
@@ -54,7 +61,7 @@ def platform_and_pins():
     return platform, pins
 
 
-def check():
+def check(author_options=None):
     snapshot = read_json(CAPTURE)
     layout = read_json(LAYOUT)
     platform, pins = platform_and_pins()
@@ -66,6 +73,13 @@ def check():
     if PAYLOAD.read_bytes() != data or (PACK / TARGET).read_bytes() != data:
         raise ValueError("Authored or staged preset differs from the reviewed layout.")
     actual = dict(line.split(":", 1) for line in data.decode().splitlines()[1:])
+    if author_options is not None:
+        raw = author_options.read_bytes()
+        if sha256(raw).hexdigest() != layout["authorOptionsSha256"]:
+            raise ValueError("Provided author options do not match the upstream lock.")
+        author_lines = [line for line in raw.decode("utf-8-sig").splitlines() if line.startswith("key_")]
+        if len(author_lines) != len(actual) or actual != dict(line.split(":", 1) for line in author_lines):
+            raise ValueError("Preset differs from the original author assignments.")
     for name, value in actual.items():
         if not re.fullmatch(r"key_[^:\s]+", name) or not re.fullmatch(
             r"key\.(?:keyboard|mouse)\.[a-z0-9.]+(?::[^\s]+)?", value
@@ -88,4 +102,6 @@ def check():
 
 
 if __name__ == "__main__":
-    check()
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--author-options", type=Path, help="Compare with the exact upstream options file.")
+    check(parser.parse_args().author_options)

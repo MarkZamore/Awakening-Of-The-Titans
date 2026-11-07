@@ -114,9 +114,9 @@
       "operation": "add",
       "path": "launcher/controls-preset.txt",
       "source": "tools/overlay/launcher/controls-preset.txt",
-      "sizeBytes": 12137,
-      "sha256": "43bc3aefb09e887b61f7d9f7baa25b095b5ded3fb5d654d698d09cffffc9aca0",
-      "reason": "Optional author-based controls layout applied only after launcher confirmation."
+      "sizeBytes": 11973,
+      "sha256": "035adff34d1808d45ec814cc8c81f3b5951a8da997f24993604ddfcc2c1f169f",
+      "reason": "Exact original Awakening 1.8.1 author key assignments, applied only after launcher confirmation."
     },
     {
       "operation": "add",

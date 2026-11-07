@@ -2,8 +2,8 @@
   "schemaVersion": 1,
   "packId": "attack-on-titan",
   "upstreamLockSha256": "09947fe917f6128ba44a14bebd1f7f22cb555dba6db62a7d39427d8908745303",
-  "overlaySha256": "3933003ef49d3967585b9c7d3fb35d3d2f5aecf756b825082ff59d9b442df5ba",
-  "inventorySha256": "830a8e9df29918658ecaaeb989ac98d017a74076b097d5413db9fc218c68358d",
+  "overlaySha256": "b511e80cea4fe18ad605468ee7290b7dfb8498ed069c0218aa022335fb85e1ce",
+  "inventorySha256": "d3f7882b51f5ebe09a172003e99497751cfbb0b3e83a32688f2ee4f08a4b1297",
   "operations": [
     {
       "path": "config/fancymenu/customization/spawn_layout.txt",
@@ -52,8 +52,8 @@
     },
     {
       "path": "launcher/controls-preset.txt",
-      "sha256": "43bc3aefb09e887b61f7d9f7baa25b095b5ded3fb5d654d698d09cffffc9aca0",
-      "sizeBytes": 12137
+      "sha256": "035adff34d1808d45ec814cc8c81f3b5951a8da997f24993604ddfcc2c1f169f",
+      "sizeBytes": 11973
     },
     {
       "path": "configureddefaults/options.txt",

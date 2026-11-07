@@ -1,38 +1,7 @@
 {
-  "assignments": {
-    "key_keybind.sophisticatedbackpacks.open_backpack": "key.keyboard.i",
-    "key_keybind.sophisticatedbackpacks.inventory_interaction": "key.keyboard.keypad.decimal",
-    "key_keybind.sophisticatedbackpacks.toggle_upgrade_1": "key.keyboard.keypad.7",
-    "key_keybind.sophisticatedbackpacks.toggle_upgrade_2": "key.keyboard.keypad.8",
-    "key_key.ftbquests.quests": "key.keyboard.f7",
-    "key_key.ftbquests.gui_quest_panel.add_image": "key.keyboard.keypad.9",
-    "key_key.ftbquests.gui_quest_panel.add_page_break": "key.keyboard.keypad.enter",
-    "key_key.strongershifters.shift": "key.keyboard.right.alt",
-    "key_key.strongershifters.titan_eject": "key.keyboard.end",
-    "key_key.dannys-aot.odm_skills": "key.keyboard.right.bracket",
-    "key_key.dannys-aot.hood_toggle": "key.keyboard.apostrophe",
-    "key_key.dannys-aot.flare_cycle": "key.keyboard.semicolon",
-    "key_key.dannys-aot.flare_load": "key.keyboard.keypad.0",
-    "key_key.dannys-aot.apg_reload": "key.keyboard.comma",
-    "key_key.dannys-aot.gun_reload": "key.keyboard.period",
-    "key_key.dannys-aot.attack_titan_roar": "key.keyboard.right.control",
-    "key_key.civilian_aviation.landing_gear": "key.keyboard.keypad.1",
-    "key_key.civilian_aviation.switch_weapon": "key.keyboard.keypad.2",
-    "key_key.civilian_aviation.toggle_lights": "key.keyboard.keypad.3",
-    "key_key.immersive_aircraft.dismount": "key.keyboard.delete",
-    "key_key.immersive_aircraft.boost": "key.keyboard.keypad.4",
-    "key_key.immersive_aircraft.mouse_control": "key.keyboard.keypad.5",
-    "key_key.immersive_aircraft.free_look": "key.keyboard.keypad.6",
-    "key_key.dungeonconfig.open": "key.keyboard.keypad.multiply",
-    "key_key.niftycarts.action": "key.keyboard.keypad.subtract",
-    "key_key.niftycarts.slow": "key.keyboard.right.shift",
-    "key_key.disable_voice_chat": "key.keyboard.keypad.divide",
-    "key_key.voice_chat_group": "key.keyboard.pause",
-    "key_gui.xaero_waypoints_key": "key.keyboard.home",
-    "key_gui.xaero_minimap_settings": "key.keyboard.f9",
-    "key_gui.xaero_enlarge_map": "key.keyboard.f4",
-    "key_iris.keybind.toggleShaders": "key.keyboard.f8"
-  },
+  "assignments": {},
+  "authorOptionsSha256": "ba2a6ead2141e6b44fac3ade8be203020b9cda98bfcb900b0ee4600259278cc6",
+  "authorKeysSha256": "d5e78ca0c4fb9e5818a71d282075ca90fedcc586265765946e7a4859318a1043",
   "sharedKeys": {
     "key.mouse.left": {
       "bindings": [
@@ -45,7 +14,7 @@
         "key_key.jei.toggleHideIngredient",
         "key_key.jei.transferRecipeBookmark"
       ],
-      "context": "World attack versus JEI hover, recipe, bookmark, cheat and edit actions in their native GUI contexts."
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
     },
     "key.mouse.right": {
       "bindings": [
@@ -56,7 +25,7 @@
         "key_key.parcool.ClingToCliff",
         "key_key.use"
       ],
-      "context": "Vanilla use and mounted aircraft use share the same gesture. ParCool checks for a climbable wall. JEI uses GUI and hover contexts."
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
     },
     "key.keyboard.w": {
       "bindings": [
@@ -64,7 +33,7 @@
         "key_key.immersive_aircraft.multi_control_forward",
         "key_key.immersive_aircraft.multi_control_push"
       ],
-      "context": "Move forward on foot; forward or pitch down depending on the aircraft controls."
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
     },
     "key.keyboard.a": {
       "bindings": [
@@ -72,7 +41,7 @@
         "key_key.jei.bookmark",
         "key_key.left"
       ],
-      "context": "Move left on foot or in the aircraft, JEI bookmark while hovering in a screen."
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
     },
     "key.keyboard.s": {
       "bindings": [
@@ -80,23 +49,24 @@
         "key_key.immersive_aircraft.multi_control_backward",
         "key_key.immersive_aircraft.multi_control_pull"
       ],
-      "context": "Move backward on foot; backward or pitch up depending on the aircraft controls."
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
     },
     "key.keyboard.d": {
       "bindings": [
         "key_key.immersive_aircraft.multi_control_right",
         "key_key.right"
       ],
-      "context": "Move right on foot or while piloting."
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
     },
     "key.keyboard.space": {
       "bindings": [
         "key_key.immersive_aircraft.multi_control_throttle_up",
         "key_key.immersive_aircraft.multi_control_up",
         "key_key.jump",
-        "key_key.parcool.WallJump"
+        "key_key.parcool.WallJump",
+        "key_key.strongershifters.titan_eject"
       ],
-      "context": "Jump on foot, jump against a wall in ParCool, ascend or increase throttle while piloting."
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
     },
     "key.keyboard.left.shift": {
       "bindings": [
@@ -106,14 +76,14 @@
         "key_key.parcool.Breakfall",
         "key_key.sneak"
       ],
-      "context": "Sneak or prepare a ParCool breakfall on foot, descend or reduce throttle while piloting, pause recipe cycling in JEI."
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
     },
     "key.keyboard.left.control": {
       "bindings": [
         "key_key.parcool.FastRun",
         "key_key.sprint"
       ],
-      "context": "Vanilla sprint and ParCool fast run intentionally share the author movement gesture."
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
     },
     "key.mouse.middle": {
       "bindings": [
@@ -121,98 +91,223 @@
         "key_key.pickItem",
         "key_keybind.sophisticatedbackpacks.sort"
       ],
-      "context": "Pick block in the world, JEI cheat stack or backpack sort in screens."
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
+    },
+    "key.keyboard.x": {
+      "bindings": [
+        "key_key.dannys-aot.flare_load",
+        "key_key.loadToolbarActivator",
+        "key_keybind.sophisticatedbackpacks.toggle_upgrade_2"
+      ],
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
     },
     "key.keyboard.1": {
       "bindings": [
         "key_key.dannys-aot.shifter_ability_1",
         "key_key.hotbar.1"
       ],
-      "context": "Vanilla hotbar and authored Danny ability slot use the same number. Danny dispatches the ability in shifter or Founder state. FounderHotbarKeyMixin suppresses the vanilla slot in its Founder path."
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
     },
     "key.keyboard.2": {
       "bindings": [
         "key_key.dannys-aot.shifter_ability_2",
         "key_key.hotbar.2"
       ],
-      "context": "Vanilla hotbar and authored Danny ability slot use the same number. Danny dispatches the ability in shifter or Founder state. FounderHotbarKeyMixin suppresses the vanilla slot in its Founder path."
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
     },
     "key.keyboard.3": {
       "bindings": [
         "key_key.dannys-aot.shifter_ability_3",
         "key_key.hotbar.3"
       ],
-      "context": "Vanilla hotbar and authored Danny ability slot use the same number. Danny dispatches the ability in shifter or Founder state. FounderHotbarKeyMixin suppresses the vanilla slot in its Founder path."
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
     },
     "key.keyboard.4": {
       "bindings": [
         "key_key.dannys-aot.shifter_ability_4",
         "key_key.hotbar.4"
       ],
-      "context": "Vanilla hotbar and authored Danny ability slot use the same number. Danny dispatches the ability in shifter or Founder state. FounderHotbarKeyMixin suppresses the vanilla slot in its Founder path."
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
     },
     "key.keyboard.5": {
       "bindings": [
         "key_key.dannys-aot.shifter_ability_5",
         "key_key.hotbar.5"
       ],
-      "context": "Vanilla hotbar and authored Danny ability slot use the same number. Danny dispatches the ability in shifter or Founder state. FounderHotbarKeyMixin suppresses the vanilla slot in its Founder path."
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
     },
     "key.keyboard.6": {
       "bindings": [
         "key_key.dannys-aot.shifter_ability_6",
         "key_key.hotbar.6"
       ],
-      "context": "Vanilla hotbar and authored Danny ability slot use the same number. Danny dispatches the ability in shifter or Founder state. FounderHotbarKeyMixin suppresses the vanilla slot in its Founder path."
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
     },
     "key.keyboard.7": {
       "bindings": [
         "key_key.dannys-aot.shifter_ability_7",
         "key_key.hotbar.7"
       ],
-      "context": "Vanilla hotbar and authored Danny ability slot use the same number. Danny dispatches the ability in shifter or Founder state. FounderHotbarKeyMixin suppresses the vanilla slot in its Founder path."
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
     },
     "key.keyboard.8": {
       "bindings": [
         "key_key.dannys-aot.shifter_ability_8",
         "key_key.hotbar.8"
       ],
-      "context": "Vanilla hotbar and authored Danny ability slot use the same number. Danny dispatches the ability in shifter or Founder state. FounderHotbarKeyMixin suppresses the vanilla slot in its Founder path."
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
     },
     "key.keyboard.9": {
       "bindings": [
         "key_key.dannys-aot.shifter_ability_9",
         "key_key.hotbar.9"
       ],
-      "context": "Vanilla hotbar and authored Danny ability slot use the same number. Danny dispatches the ability in shifter or Founder state. FounderHotbarKeyMixin suppresses the vanilla slot in its Founder path."
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
+    },
+    "key.keyboard.k": {
+      "bindings": [
+        "key_key.civilian_aviation.toggle_lights",
+        "key_key.dannys-aot.tease_shift",
+        "key_key.dungeonconfig.open"
+      ],
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
+    },
+    "key.keyboard.p": {
+      "bindings": [
+        "key_key.ftbquests.gui_quest_panel.add_page_break",
+        "key_key.parcool.openSetting"
+      ],
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
+    },
+    "key.keyboard.left.alt": {
+      "bindings": [
+        "key_key.dannys-aot.shifter_dodge",
+        "key_key.immersive_aircraft.free_look",
+        "key_key.strongershifters.shift"
+      ],
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
     },
     "key.keyboard.backspace": {
       "bindings": [
         "key_key.jei.recipeBack",
         "key_key.strongershifters.themetoggle"
       ],
-      "context": "Stronger Shifters theme in gameplay and recipe back in the JEI screen."
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
+    },
+    "key.keyboard.h": {
+      "bindings": [
+        "key_key.dannys-aot.hood_toggle",
+        "key_key.strongershifters.hibernate"
+      ],
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
+    },
+    "key.keyboard.g": {
+      "bindings": [
+        "key_key.civilian_aviation.landing_gear",
+        "key_key.parcool.Dodge"
+      ],
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
+    },
+    "key.keyboard.v": {
+      "bindings": [
+        "key_key.civilian_aviation.switch_weapon",
+        "key_key.dannys-aot.thunder_spear_load"
+      ],
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
+    },
+    "key.keyboard.b": {
+      "bindings": [
+        "key_key.dannys-aot.titan_shift",
+        "key_key.immersive_aircraft.boost",
+        "key_keybind.sophisticatedbackpacks.open_backpack"
+      ],
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
     },
     "key.keyboard.r": {
       "bindings": [
+        "key_key.dannys-aot.apg_reload",
+        "key_key.dannys-aot.attack_titan_roar",
+        "key_key.dannys-aot.gun_reload",
         "key_key.dannys-aot.reload_blade",
-        "key_key.jei.showRecipe"
+        "key_key.immersive_aircraft.dismount",
+        "key_key.jei.showRecipe",
+        "key_key.niftycarts.action"
       ],
-      "context": "Danny blade reload checks held BladeItem and raw input outside screens; JEI recipe is a GUI-hover action."
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
+    },
+    "key.keyboard.z": {
+      "bindings": [
+        "key_gui.xaero_enlarge_map",
+        "key_key.dannys-aot.titan_roar",
+        "key_key.niftycarts.slow",
+        "key_keybind.sophisticatedbackpacks.toggle_upgrade_1"
+      ],
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
+    },
+    "key.keyboard.n": {
+      "bindings": [
+        "key_key.dannys-aot.stealth_mode",
+        "key_key.disable_voice_chat"
+      ],
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
+    },
+    "key.keyboard.y": {
+      "bindings": [
+        "key_gui.xaero_minimap_settings",
+        "key_key.dannys-aot.awakened_power"
+      ],
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
+    },
+    "key.keyboard.left.bracket": {
+      "bindings": [
+        "key_key.dannys-aot.hide_shifter_ui",
+        "key_key.dannys-aot.odm_skills"
+      ],
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
+    },
+    "key.keyboard.c": {
+      "bindings": [
+        "key_key.dannys-aot.flare_cycle",
+        "key_key.parcool.Crawl",
+        "key_keybind.sophisticatedbackpacks.inventory_interaction"
+      ],
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
+    },
+    "key.keyboard.grave.accent": {
+      "bindings": [
+        "key_key.immersive_aircraft.mouse_control",
+        "key_key.voice_chat"
+      ],
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
+    },
+    "key.keyboard.u": {
+      "bindings": [
+        "key_gui.xaero_waypoints_key",
+        "key_key.jei.showUses"
+      ],
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
     },
     "key.keyboard.page.up": {
       "bindings": [
         "key_key.jei.previousCategory",
         "key_key.jei.previousRecipePage"
       ],
-      "context": "Retain JEI authored page/category shortcut; the native recipe GUI handles these through its own navigation."
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
     },
     "key.keyboard.page.down": {
       "bindings": [
         "key_key.jei.nextCategory",
         "key_key.jei.nextRecipePage"
       ],
-      "context": "Retain JEI authored page/category shortcut; the native recipe GUI handles these through its own navigation."
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
+    },
+    "key.keyboard.insert": {
+      "bindings": [
+        "key_iris.keybind.toggleShaders",
+        "key_key.hide_icons",
+        "key_key.voice_chat_group"
+      ],
+      "context": "Exact shared key from the original Awakening 1.8.1 author options, preserved at the user request."
     }
   }
 }
